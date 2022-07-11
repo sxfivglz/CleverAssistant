@@ -44,17 +44,21 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edc-2h-AqE">
-                                <rect key="frame" x="115" y="678" width="184" height="44"/>
+                                <rect key="frame" x="115" y="678" width="184" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="   Iniciar sesión    ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" name="AccentColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="IniciarSesion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8EZ-OW-r2I"/>
+                                    <segue destination="bm7-tH-vuj" kind="show" id="jIY-36-DtB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHQ-FZ-tk4">
                                 <rect key="frame" x="20" y="601" width="164" height="32"/>
@@ -93,7 +97,7 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Imagotipo" translatesAutoresizingMaskIntoConstraints="NO" id="7yT-tj-TFf">
                                 <rect key="frame" x="57" y="208" width="300" height="150"/>
@@ -135,15 +139,20 @@
                     <navigationItem key="navigationItem" id="QpG-r8-tN1">
                         <barButtonItem key="backBarButtonItem" title="Inicio de sesión" id="PkO-0s-VxN"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailField" destination="K5b-4k-g5m" id="kyo-X6-wS8"/>
+                        <outlet property="loginBtn" destination="edc-2h-AqE" id="H9p-VK-q7O"/>
+                        <outlet property="passField" destination="JSV-tg-3yX" id="xp6-1g-VaM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="109.82142857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Recover Pass-->
         <scene sceneID="E6R-eN-cpM">
             <objects>
-                <viewController id="wn5-jX-r5R" sceneMemberID="viewController">
+                <viewController id="wn5-jX-r5R" customClass="ViewControllerRecoverPass" customModule="GreenHouse_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wa6-5x-Xk6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,7 +178,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQ4-bc-fVQ">
                                 <rect key="frame" x="5" y="385" width="404" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukq-Eq-R1z">
                                 <rect key="frame" x="100" y="474" width="214" height="50"/>
@@ -209,10 +218,10 @@
             </objects>
             <point key="canvasLocation" x="-726" y="798"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Registro-->
         <scene sceneID="Bei-Pz-qrI">
             <objects>
-                <viewController id="hgq-RF-HPI" sceneMemberID="viewController">
+                <viewController id="hgq-RF-HPI" customClass="ViewControllerRegistro" customModule="GreenHouse_Assistant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NIJ-pV-CtN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,14 +234,14 @@
                                 </constraints>
                                 <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ej. López Ruiz" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="qsx-Rt-9uv">
                                 <rect key="frame" x="10" y="343" width="399" height="34"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese su información" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWg-H9-AXl">
                                 <rect key="frame" x="0.0" y="169" width="414" height="21"/>
@@ -286,7 +295,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fos-zQ-n5O">
                                 <rect key="frame" x="10" y="578.5" width="399" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byi-Cg-2IO">
                                 <rect key="frame" x="20" y="627.5" width="394" height="20.5"/>
@@ -297,7 +306,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="•••••••" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTX-hk-5Hp">
                                 <rect key="frame" x="10" y="663" width="399" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HR0-8U-jmh">
                                 <rect key="frame" x="130" y="758" width="154" height="50"/>
@@ -372,9 +381,80 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="797.54464285714278"/>
         </scene>
+        <!--Perfil-->
+        <scene sceneID="abd-uR-6ne">
+            <objects>
+                <viewController id="QaQ-Uu-Lso" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nBS-OH-3Wa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="N6q-Al-pyz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="person" catalog="system" id="1zb-Mk-pKY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4aN-Ux-erI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1912" y="1082"/>
+        </scene>
+        <!--Inicio-->
+        <scene sceneID="3qd-Jp-m3I">
+            <objects>
+                <viewController id="u5h-mb-OSM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YNb-lV-wYB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="U1c-rv-03y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Inicio" image="house" catalog="system" id="eIp-SF-jfe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRV-c3-m3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1912" y="276"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="idt-90-iUh">
+            <objects>
+                <tabBarController id="bm7-tH-vuj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="tEW-eC-myH"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iGn-rh-gV2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="u5h-mb-OSM" kind="relationship" relationship="viewControllers" id="Wja-8o-Ynz"/>
+                        <segue destination="QaQ-Uu-Lso" kind="relationship" relationship="viewControllers" id="oXV-Y1-TmK"/>
+                        <segue destination="EVb-23-yfH" kind="relationship" relationship="viewControllers" id="f9h-qQ-qEH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tbR-wu-KhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="110"/>
+        </scene>
+        <!--Configuración-->
+        <scene sceneID="YzJ-uD-IED">
+            <objects>
+                <viewController id="EVb-23-yfH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vd9-GG-CO6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Mwm-rG-J2g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Configuración" image="gearshape" catalog="system" id="SCj-d7-YEE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3jD-s9-opZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1912" y="-476"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Imagotipo" width="1432" height="1506"/>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
