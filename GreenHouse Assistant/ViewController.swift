@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  GreenHouse Assistant
-//
-//  Created by Mac19 on 30/06/22.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -14,21 +7,48 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
     }
 
-
     @IBAction func IniciarSesion(_ sender: Any) {
-      /*  let fc: String?=(emailField.text!)
-        let fp: String?=(passField.text!)
-        if let fc2 = fc, let fp2 = fp{
+        let x:String = myConection + "login"
+        guard let url = URL(string: x) else { return }
+        
+        var request = URLRequest(url: url)
+        
+        let email = emailField.text
+        let password = passField.text
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body: [String: AnyHashable] = [
+            "email": email,
+            "password": password
+        ]
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        
+        let task = URLSession.shared.dataTask(with: request){
+            data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
             
-        }else if fc != nil{
-            
-        }else{
-            
-        }*/
+            do{
+                let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                if let token = (response as AnyObject)["token"]! as? String
+                {
+                    let defaults = UserDefaults.standard
+                    let tk = "Bearer " + token
+                    defaults.setValue(tk, forKey: "Token")
+                    print(tk)
+                }
+            }
+            catch{
+                print(error)
+            }
+        }
+        task.resume()
     }
 }
-
