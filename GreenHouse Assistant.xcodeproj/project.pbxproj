@@ -96,11 +96,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68BE0586286EAB8C0096D10E /* Build configuration list for PBXNativeTarget "GreenHouse Assistant" */;
 			buildPhases = (
-				BBA73581C9605BB0955246A6 /* [CP] Check Pods Manifest.lock */,
 				68BE056E286EAB890096D10E /* Sources */,
 				68BE056F286EAB890096D10E /* Frameworks */,
 				68BE0570286EAB890096D10E /* Resources */,
-				560A069FCD8AC702ACC1B2EA /* [CP] Embed Pods Frameworks */,
 				6839C753287611280065A6C7 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -157,48 +155,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		560A069FCD8AC702ACC1B2EA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BBA73581C9605BB0955246A6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GreenHouse Assistant-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		68BE056E286EAB890096D10E /* Sources */ = {
