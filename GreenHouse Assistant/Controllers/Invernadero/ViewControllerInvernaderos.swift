@@ -38,6 +38,11 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let invernadero = invernaderos[indexPath.row]
+        
+    }
+    
     func downloadJSON(completed: @escaping () -> ()){
         let url = URL(string: myConection + "users_invernaderos/getInvernadero_Usuario")
         var request = URLRequest(url: url!)

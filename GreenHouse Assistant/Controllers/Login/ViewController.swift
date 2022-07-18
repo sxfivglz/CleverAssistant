@@ -53,11 +53,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                          let defaults = UserDefaults.standard
                          let tk = "Bearer " + token
                          defaults.setValue(tk, forKey: "Token")
-                                                 
-                         OperationQueue.main.addOperation {
+                        
+                        /*OperationQueue.main.addOperation {
                              [weak self] in
                             self?.performSegue(withIdentifier: "InvSegue", sender: self)
-                        }
+                        }*/
                      }
                      else{
                         var x:Int = 0
@@ -92,5 +92,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
              }
              task.resume()
          }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.destination is ViewControllerInvernaderos else { return }
     }
 }

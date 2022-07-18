@@ -64,6 +64,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6852E3332880A3E4008917CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6852E331287F3015008917CF /* InvernaderosClass.swift */,
+				6833B5F6287CD5D4007C4490 /* Global.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6852E3342880A410008917CF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6852E33E2880A6F0008917CF /* Historial */,
+				6852E33D2880A6E7008917CF /* RecuperaPass */,
+				6852E33A2880A6B7008917CF /* Perfil */,
+				6852E3392880A6A9008917CF /* Sensores */,
+				6852E3382880A69B008917CF /* Estacion */,
+				6852E3372880A601008917CF /* Invernadero */,
+				6852E3362880A42B008917CF /* Login */,
+				6852E3352880A41F008917CF /* Registro */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6852E3352880A41F008917CF /* Registro */ = {
+			isa = PBXGroup;
+			children = (
+				689577EE287603F5003B54D3 /* ViewControllerRegistro.swift */,
+			);
+			path = Registro;
+			sourceTree = "<group>";
+		};
+		6852E3362880A42B008917CF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				68BE0579286EAB890096D10E /* ViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6852E3372880A601008917CF /* Invernadero */ = {
+			isa = PBXGroup;
+			children = (
+				6833B600287E036A007C4490 /* ViewControllerInvernaderos.swift */,
+			);
+			path = Invernadero;
+			sourceTree = "<group>";
+		};
+		6852E3382880A69B008917CF /* Estacion */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Estacion;
+			sourceTree = "<group>";
+		};
+		6852E3392880A6A9008917CF /* Sensores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sensores;
+			sourceTree = "<group>";
+		};
+		6852E33A2880A6B7008917CF /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		6852E33D2880A6E7008917CF /* RecuperaPass */ = {
+			isa = PBXGroup;
+			children = (
+				689577F228760588003B54D3 /* ViewControllerRecoverPass.swift */,
+			);
+			path = RecuperaPass;
+			sourceTree = "<group>";
+		};
+		6852E33E2880A6F0008917CF /* Historial */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Historial;
+			sourceTree = "<group>";
+		};
 		68BE0569286EAB890096D10E = {
 			isa = PBXGroup;
 			children = (
@@ -83,20 +167,16 @@
 		68BE0574286EAB890096D10E /* GreenHouse Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				6852E3342880A410008917CF /* Controllers */,
+				6852E3332880A3E4008917CF /* Models */,
 				688B16262873C4F300EC45AD /* GoogleService-Info.plist */,
 				68BE0575286EAB890096D10E /* AppDelegate.swift */,
 				68BE0577286EAB890096D10E /* SceneDelegate.swift */,
-				68BE0579286EAB890096D10E /* ViewController.swift */,
-				689577EE287603F5003B54D3 /* ViewControllerRegistro.swift */,
-				689577F228760588003B54D3 /* ViewControllerRecoverPass.swift */,
 				68BE057B286EAB890096D10E /* Main.storyboard */,
 				68BE057E286EAB8C0096D10E /* Assets.xcassets */,
 				68BE0580286EAB8C0096D10E /* LaunchScreen.storyboard */,
 				68BE0583286EAB8C0096D10E /* Info.plist */,
-				6833B5F6287CD5D4007C4490 /* Global.swift */,
 				6833B5F8287DD593007C4490 /* Validation.swift */,
-				6833B600287E036A007C4490 /* ViewControllerInvernaderos.swift */,
-				6852E331287F3015008917CF /* InvernaderosClass.swift */,
 			);
 			path = "GreenHouse Assistant";
 			sourceTree = "<group>";
