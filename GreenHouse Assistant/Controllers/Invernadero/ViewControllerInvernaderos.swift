@@ -12,6 +12,7 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     var invernaderos = [InvernaderosClass]()
     
     override func viewDidLoad() {
@@ -44,9 +45,13 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
         let defaults = UserDefaults.standard
         defaults.setValue(invernadero.id, forKey: "Id_Invernadero")
         
-        OperationQueue.main.addOperation {
+       /* OperationQueue.main.addOperation {
              [weak self] in
             self?.performSegue(withIdentifier: "EstSegue", sender: self)
+        }*/
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "EstSegue", sender: self)
+
         }
     }
     

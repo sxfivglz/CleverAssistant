@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68004743288758C60031A0A4 /* ViewControllerPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68004742288758C60031A0A4 /* ViewControllerPerfil.swift */; };
 		6833B5F7287CD5D4007C4490 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B5F6287CD5D4007C4490 /* Global.swift */; };
 		6833B5F9287DD593007C4490 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B5F8287DD593007C4490 /* Validation.swift */; };
 		6833B601287E036A007C4490 /* ViewControllerInvernaderos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B600287E036A007C4490 /* ViewControllerInvernaderos.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		68004742288758C60031A0A4 /* ViewControllerPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerfil.swift; sourceTree = "<group>"; };
 		6833B5F6287CD5D4007C4490 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		6833B5F8287DD593007C4490 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		6833B600287E036A007C4490 /* ViewControllerInvernaderos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInvernaderos.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		6852E33A2880A6B7008917CF /* Perfil */ = {
 			isa = PBXGroup;
 			children = (
+				68004742288758C60031A0A4 /* ViewControllerPerfil.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				689577F328760588003B54D3 /* ViewControllerRecoverPass.swift in Sources */,
 				6833B5F7287CD5D4007C4490 /* Global.swift in Sources */,
 				6852E332287F3015008917CF /* InvernaderosClass.swift in Sources */,
+				68004743288758C60031A0A4 /* ViewControllerPerfil.swift in Sources */,
 				689577EF287603F5003B54D3 /* ViewControllerRegistro.swift in Sources */,
 				6833B601287E036A007C4490 /* ViewControllerInvernaderos.swift in Sources */,
 				68529CB12885E693000AF2A6 /* EstacionesClass.swift in Sources */,
