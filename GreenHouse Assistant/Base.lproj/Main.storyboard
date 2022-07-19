@@ -559,7 +559,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bN3-7S-jht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3394" y="-831"/>
+            <point key="canvasLocation" x="2613" y="-593"/>
         </scene>
         <!--Estaciones-->
         <scene sceneID="ZXt-Ko-w9t">
@@ -597,6 +597,7 @@
                     <connections>
                         <segue destination="esw-jN-tYg" kind="relationship" relationship="viewControllers" id="B9b-mC-yUe"/>
                         <segue destination="h77-Me-Jr1" kind="relationship" relationship="viewControllers" id="nMd-F3-Yjr"/>
+                        <segue destination="yVG-Y9-FpD" kind="relationship" relationship="viewControllers" id="GTY-y8-U4i"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63X-RO-lcB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -670,6 +671,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGL-Tw-vCL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-726" y="1485"/>
+        </scene>
+        <!--Bomba-->
+        <scene sceneID="pIA-Br-F4q">
+            <objects>
+                <viewController id="yVG-Y9-FpD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N0P-jv-gub">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="LT9-Vv-blc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bomba" id="LCz-R7-6Bb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bkf-Sw-NG0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3394" y="1130"/>
         </scene>
     </scenes>
     <resources>
