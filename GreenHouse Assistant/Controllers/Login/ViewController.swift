@@ -4,11 +4,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
-   
+    @IBOutlet weak var registroBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
  
+    @IBAction func Registrarme(_ sender: Any) {
+        self.performSegue(withIdentifier: "registroSegue", sender: self)
+    }
+    
     
     @IBAction func IniciarSesion(_ sender: Any) {
         let correo:String? = String(emailField.text!)
@@ -54,10 +59,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                          let tk = "Bearer " + token
                          defaults.setValue(tk, forKey: "Token")
                         
-                        /*OperationQueue.main.addOperation {
-                             [weak self] in
-                            self?.performSegue(withIdentifier: "InvSegue", sender: self)
+                   /* OperationQueue.main.addOperation {
+                            [weak self] in
+                        self?.performSegue(withIdentifier: "InvSegue", sender: self)
                         }*/
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "InvSegue", sender: self)
+                        }
+                      
                      }
                      else{
                         var x:Int = 0
@@ -93,7 +102,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
              task.resume()
          }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.destination is ViewControllerInvernaderos else { return }
-    }
+    
+     
 }

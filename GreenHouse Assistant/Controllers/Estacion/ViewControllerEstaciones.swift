@@ -1,22 +1,22 @@
 //
-//  ViewControllerInvernaderos.swift
+//  ViewControllerEstaciones.swift
 //  GreenHouse Assistant
 //
-//  Created by Mac19 on 12/07/22.
+//  Created by Mac19 on 18/07/22.
 //
 
 import UIKit
 
-class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     @IBOutlet weak var tableView: UITableView!
     
-    var invernaderos = [InvernaderosClass]()
+    var estaciones = [EstacionesClass]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         downloadJSON {
             self.tableView.reloadData()
             print("success")
@@ -26,32 +26,34 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return invernaderos.count
+        return estaciones.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         
-        let invernadero = invernaderos[indexPath.row]
-        cell.textLabel?.text = String(invernadero.id)
-        cell.detailTextLabel?.text = invernadero.nombre.capitalized
+        let estacion = estaciones[indexPath.row]
+        cell.textLabel?.text = String(estacion.id)
+        cell.detailTextLabel?.text = estacion.nombre.capitalized
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let invernadero = invernaderos[indexPath.row]
+        let estacion = estaciones[indexPath.row]
         let defaults = UserDefaults.standard
-        defaults.setValue(invernadero.id, forKey: "Id_Invernadero")
+        defaults.setValue(estacion.id, forKey: "Id_Estacion")
         
         OperationQueue.main.addOperation {
              [weak self] in
-            self?.performSegue(withIdentifier: "EstSegue", sender: self)
+            self?.performSegue(withIdentifier: "principalSegue", sender: self)
         }
     }
-    
+     
     func downloadJSON(completed: @escaping () -> ()){
-        let url = URL(string: myConection + "users_invernaderos/getInvernadero_Usuario")
+        let Id_inv:String = UserDefaults.standard.string(forKey: "Id_Invernadero")!
+        let url = URL(string: myConection + "invernaderos_estaciones/getEstaciones/" + Id_inv)
+        print(url)
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         let tk:String = UserDefaults.standard.string(forKey: "Token")!
@@ -60,14 +62,18 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
         URLSession.shared.dataTask(with: request){ data, response, err in
             if err == nil {
                 do {
-                    self.invernaderos = try JSONDecoder().decode([InvernaderosClass].self, from: data!)
-                    
+                    print("hola")
+                    print (response)
+                    print(data)
+                    self.estaciones = try JSONDecoder().decode([EstacionesClass].self, from: data!)
                     DispatchQueue.main.async {
                         completed()
                     }
                 }
                 catch {
-                    print("Error api")
+                    print("hola2")
+                    print(response)
+                    print(err)
                 }
             }
         }.resume()
