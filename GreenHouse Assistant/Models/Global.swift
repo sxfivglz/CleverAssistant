@@ -1,3 +1,3 @@
 import Foundation
 
-public var myConection = "http://34.239.105.147:3333/"
+public var myConection = "http://54.89.250.185:3333/"

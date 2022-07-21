@@ -1,10 +1,3 @@
-//
-//  ViewControllerEstaciones.swift
-//  GreenHouse Assistant
-//
-//  Created by Mac19 on 18/07/22.
-//
-
 import UIKit
 
 class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableViewDataSource {

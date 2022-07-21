@@ -15,6 +15,8 @@ class ViewControllerRegistro: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerBtn.layer.cornerRadius = 15
+        registerBtn.layer.masksToBounds = true
     }
     
     @IBAction func Registrar(_ sender: Any) {
@@ -67,7 +69,7 @@ class ViewControllerRegistro: UIViewController {
                 "fecha_nacimiento": fechaNac,
                 "fecha_activo": "2030-01-01"
              ]
-             
+             /* */
              request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
              let task = URLSession.shared.dataTask(with: request){
                  data, _, error in

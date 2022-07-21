@@ -6,16 +6,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registroBtn: UIButton!
     
+    @IBOutlet weak var recoverBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginBtn.layer.cornerRadius = 15
+        loginBtn.layer.masksToBounds = true
     }
- 
+    
+    @IBAction func RecoverPass(_ sender: Any) {
+        self.performSegue(withIdentifier: "recoverSegue", sender: self)
+    }
+    
     @IBAction func Registrarme(_ sender: Any) {
         self.performSegue(withIdentifier: "registroSegue", sender: self)
     }
     
-    
-    @IBAction func IniciarSesion(_ sender: Any) {
+    @IBAction func iniciarSesion(_ sender: Any) {
         let correo:String? = String(emailField.text!)
         let contra:String? = String(passField.text!)
          
@@ -55,9 +61,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
                      let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                      if let token = (response as AnyObject)["token"]! as? String
                      {
-                         let defaults = UserDefaults.standard
-                         let tk = "Bearer " + token
-                         defaults.setValue(tk, forKey: "Token")
+                        let defaults = UserDefaults.standard
+                        let tk = "Bearer " + token
+                        defaults.setValue(tk, forKey: "Token")
                         
                    /* OperationQueue.main.addOperation {
                             [weak self] in
@@ -103,6 +109,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
              task.resume()
          }
     }
+    }
     
-     
-}
+
