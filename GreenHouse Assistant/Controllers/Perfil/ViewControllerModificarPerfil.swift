@@ -20,6 +20,8 @@ class ViewControllerModificarPerfil: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guardarBtn.layer.cornerRadius = 15
+        guardarBtn.layer.masksToBounds = true
     }
  
     @IBAction func guardarCambios(_ sender: Any) {
@@ -65,11 +67,9 @@ class ViewControllerModificarPerfil: UIViewController {
         }else{
             let Id_user:String = UserDefaults.standard.string(forKey: "idUsuario")!
             print(Id_user)
-            /*Manda nulo por la misma peticion xdd*/
             let x:String = (myConection + "users/update/"+Id_user)
-            /*Aqui falta el id de la persona*/
             guard let url = URL(string: x) else { return }
-             print(url)
+            print(url)
             var request = URLRequest(url: url)
             request.httpMethod = "PUT"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -86,6 +86,8 @@ class ViewControllerModificarPerfil: UIViewController {
         
             request.httpBody = try?
                 JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+            print(body)
+            print(request)
                 let task = URLSession.shared.dataTask(with: request){
                     data, _, error in
                     guard let data = data, error == nil else{
@@ -97,12 +99,9 @@ class ViewControllerModificarPerfil: UIViewController {
                        let msg = (response as AnyObject)["message"]! as? String
                        if msg == "ok"
                         {
-                           OperationQueue.main.addOperation {
-                              let dialogMessage = UIAlertController(title: "Usuario", message: "Usuario actualizado con éxito!", preferredStyle: .alert)
-                               let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
-                               dialogMessage.addAction(ok)
-                               self.present(dialogMessage, animated: true, completion: nil)
-                           }
+                        OperationQueue.main.addOperation {
+                            self.mostrarAlerta()
+                        }
                         
                        }else{
                         print("error -----")
@@ -126,7 +125,7 @@ class ViewControllerModificarPerfil: UIViewController {
                             dialogMessage.addAction(ok)
                             self.present(dialogMessage, animated: true, completion: nil)
                         default:
-                            let dialogMessage = UIAlertController(title: "Error", message: "No se que chuchas paso.", preferredStyle: .alert)
+                            let dialogMessage = UIAlertController(title: "Error", message: "Algo anda mal", preferredStyle: .alert)
                             let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                             dialogMessage.addAction(ok)
                             self.present(dialogMessage, animated: true, completion: nil)
@@ -141,4 +140,14 @@ class ViewControllerModificarPerfil: UIViewController {
              task.resume()
         }
     }
+    func mostrarAlerta() {
+        let alert = UIAlertController(title: "Usuario", message: "El usuario se ha editado exitosamente",         preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Ok",
+                                          style: UIAlertAction.Style.default,
+                                          handler: {(_: UIAlertAction!) in
+                                            self.performSegue(withIdentifier: "unwindPerfil", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
 }

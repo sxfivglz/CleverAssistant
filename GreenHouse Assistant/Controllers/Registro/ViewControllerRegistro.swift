@@ -87,10 +87,12 @@ class ViewControllerRegistro: UIViewController {
                             let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                             dialogMessage.addAction(ok)
                             self.present(dialogMessage, animated: true, completion: nil)*/
-                            let alertController = UIAlertController(title: "Usuario registrado", message: "Registro exitoso", preferredStyle: .alert)
-                            let backToSignIn = UIAlertAction(title: "Ok", style: .cancel, handler: { action in self.performSegue(withIdentifier: "backinicioSegue", sender: self)})
-                            alertController.addAction(backToSignIn)
-                            self.present(alertController, animated: true, completion: nil)
+                            self.mostrarAlerta()
+                            /*let alertController = UIAlertController(title: "Congratulation", message: "You have successfully signed up", preferredStyle: .alert)
+                             alertController.addAction(UIAlertAction(title: "Get Started", style: .default, handler: { (action:UIAlertAction) in
+
+                                 self.performSegue(withIdentifier: "back2SignPage", sender: self)
+                             }))*/
                         
                         }
                      
@@ -131,5 +133,16 @@ class ViewControllerRegistro: UIViewController {
              }
              task.resume()
          }
+       
     }
+    func mostrarAlerta() {
+        let alert = UIAlertController(title: "Usuario", message: "El usuario se ha registrado exitosamente",         preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Ok",
+                                          style: UIAlertAction.Style.default,
+                                          handler: {(_: UIAlertAction!) in
+                                            self.performSegue(withIdentifier: "unwindInicioSesion", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
 }

@@ -71,9 +71,9 @@ class ViewControllerRecoverPassFinal: UIViewController {
                 
                 do{
                     let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    if let token = (response as AnyObject)["message"]! as? String
+                    if ((response as AnyObject)["message"]! as? String) != nil
                     {
-                        let dialogMessage = UIAlertController(title: "UWU", message: "El Correo Electronico que ha ingresado no existe, verifiquelo.", preferredStyle: .alert)
+                        let dialogMessage = UIAlertController(title: "Error", message: "El Correo Electronico que ha ingresado no existe, verifiquelo.", preferredStyle: .alert)
                         let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                         dialogMessage.addAction(ok)
                         self.present(dialogMessage, animated: true, completion: nil)
@@ -85,8 +85,12 @@ class ViewControllerRecoverPassFinal: UIViewController {
                             x = r
                        }
                        OperationQueue.main.addOperation{
-                                                    
-                       switch x {
+                    switch x {
+                       case 202:
+                        OperationQueue.main.addOperation {
+                            self.mostrarAlerta()
+                        }
+                        break
                        case 410:
                            let dialogMessage = UIAlertController(title: "Error", message: "El Pin no coincide.", preferredStyle: .alert)
                            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
@@ -97,7 +101,7 @@ class ViewControllerRecoverPassFinal: UIViewController {
                            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                            dialogMessage.addAction(ok)
                            self.present(dialogMessage, animated: true, completion: nil)
-                       }
+                    }
                     }
                     }
                 }
@@ -107,6 +111,17 @@ class ViewControllerRecoverPassFinal: UIViewController {
             }
             task.resume()
         }
+        }
+    /*unwindRecoverPass*/
+    func mostrarAlerta() {
+        let alert = UIAlertController(title: "Recuperación de contraseña", message: "La contraseña se ha cambiado exitosamente",         preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Ok",
+                                          style: UIAlertAction.Style.default,
+                                          handler: {(_: UIAlertAction!) in
+                                            self.performSegue(withIdentifier: "unwindRecoverPass", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

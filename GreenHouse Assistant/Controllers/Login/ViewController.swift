@@ -109,6 +109,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
              task.resume()
          }
     }
+ 
+    @IBAction func unwindInicioSesion( _ seg: UIStoryboardSegue) {
     }
+    @IBAction func unwindRecoverPass( _ seg: UIStoryboardSegue) {
+    }
+}
     
 

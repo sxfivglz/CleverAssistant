@@ -13,11 +13,15 @@ class ViewControllerPerfil: UIViewController {
     @IBOutlet weak var pinTextField: UITextField!
     @IBOutlet weak var editarBtn: UIButton!
     
+    @IBOutlet weak var signOutBtn: UIButton!
+    
     var usuarios = [UsuariosClass]()
     override func viewDidLoad() {
         super.viewDidLoad()
         editarBtn.layer.cornerRadius = 15
         editarBtn.layer.masksToBounds = true
+        signOutBtn.layer.cornerRadius = 15
+        signOutBtn.layer.masksToBounds = true
         downloadJSON {
             print("success")
         }
@@ -31,6 +35,8 @@ class ViewControllerPerfil: UIViewController {
         emailTextField.isUserInteractionEnabled = false
     }
     
+    @IBAction func cerrarSesion(_ sender: Any) {
+    }
     @IBAction func updateUser(_ sender: Any) {
     
     }
@@ -106,5 +112,8 @@ class ViewControllerPerfil: UIViewController {
             }
         }.resume()
     }
+    @IBAction func unwindPerfil( _ seg: UIStoryboardSegue) {
+    }
+
 }
     
