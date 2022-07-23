@@ -1,29 +1,18 @@
-//
-//  ViewControllerRecoverPassFinal.swift
-//  GreenHouse Assistant
-//
-//  Created by Mac19 on 20/07/22.
-//
-
 import UIKit
 
 class ViewControllerRecoverPassFinal: UIViewController {
 
     @IBOutlet weak var codeField: UITextField!
-    
     @IBOutlet weak var passField: UITextField!
-    
     @IBOutlet weak var passFieldDos: UITextField!
     @IBOutlet weak var passBtn: UIButton!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         passBtn.layer.cornerRadius = 15
         passBtn.layer.masksToBounds = true
-        // Do any additional setup after loading the view.
-        
     }
+    
     @IBAction func cambiarPass(_ sender: Any) {
         let codigo:String? = String(codeField.text!)
         let passuno:String? = String(passField.text!)
@@ -71,38 +60,31 @@ class ViewControllerRecoverPassFinal: UIViewController {
                 
                 do{
                     let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    if ((response as AnyObject)["message"]! as? String) != nil
+                    if ((response as AnyObject)["message"]! as? String) != "Ok"
                     {
-                        let dialogMessage = UIAlertController(title: "Error", message: "El Correo Electronico que ha ingresado no existe, verifiquelo.", preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
-                        dialogMessage.addAction(ok)
-                        self.present(dialogMessage, animated: true, completion: nil)
                     }
                     else{
-                       var x:Int = 0
-                       if let r = (response as AnyObject)["code"]! as? Int{
-                            print(response)
+                        var x:Int = 0
+                        if let r = (response as AnyObject)["code"]! as? Int{
                             x = r
-                       }
-                       OperationQueue.main.addOperation{
-                    switch x {
-                       case 202:
-                        OperationQueue.main.addOperation {
-                            self.mostrarAlerta()
                         }
-                        break
-                       case 410:
-                           let dialogMessage = UIAlertController(title: "Error", message: "El Pin no coincide.", preferredStyle: .alert)
-                           let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
-                           dialogMessage.addAction(ok)
-                           self.present(dialogMessage, animated: true, completion: nil)
-                       default:
-                           let dialogMessage = UIAlertController(title: "Error", message: "No se que chuchas paso.", preferredStyle: .alert)
-                           let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
-                           dialogMessage.addAction(ok)
-                           self.present(dialogMessage, animated: true, completion: nil)
-                    }
-                    }
+                        OperationQueue.main.addOperation{
+                            switch x {
+                                case 200:
+                                    self.mostrarAlerta()
+                                    break
+                                case 410:
+                                    let dialogMessage = UIAlertController(title: "Error", message: "El Pin no coincide.", preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                    dialogMessage.addAction(ok)
+                                    self.present(dialogMessage, animated: true, completion: nil)
+                                default:
+                                    let dialogMessage = UIAlertController(title: "Error", message: "No se que chuchas paso.", preferredStyle: .alert)
+                                    let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                    dialogMessage.addAction(ok)
+                                    self.present(dialogMessage, animated: true, completion: nil)
+                            }
+                        }
                     }
                 }
                 catch{
@@ -111,17 +93,16 @@ class ViewControllerRecoverPassFinal: UIViewController {
             }
             task.resume()
         }
-        }
-    /*unwindRecoverPass*/
+    }
+    
     func mostrarAlerta() {
         let alert = UIAlertController(title: "Recuperación de contraseña", message: "La contraseña se ha cambiado exitosamente",         preferredStyle: UIAlertController.Style.alert)
 
         alert.addAction(UIAlertAction(title: "Ok",
-                                          style: UIAlertAction.Style.default,
-                                          handler: {(_: UIAlertAction!) in
-                                            self.performSegue(withIdentifier: "unwindRecoverPass", sender: self)
+                                    style: UIAlertAction.Style.default,
+                                    handler: {(_: UIAlertAction!) in
+                                        self.performSegue(withIdentifier: "unwindRecoverPass", sender: self)
             }))
             self.present(alert, animated: true, completion: nil)
         }
     }
-    

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		68004743288758C60031A0A4 /* ViewControllerPerfil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68004742288758C60031A0A4 /* ViewControllerPerfil.swift */; };
 		68004748288880680031A0A4 /* ViewControllerHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68004747288880680031A0A4 /* ViewControllerHistorial.swift */; };
-		682E69942888905F00FECEFE /* ViewControllerBomba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E69932888905F00FECEFE /* ViewControllerBomba.swift */; };
 		682E69982888A80A00FECEFE /* ViewControllerRecoverPassFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E69972888A80A00FECEFE /* ViewControllerRecoverPassFinal.swift */; };
 		6833B5F7287CD5D4007C4490 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B5F6287CD5D4007C4490 /* Global.swift */; };
 		6833B5F9287DD593007C4490 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B5F8287DD593007C4490 /* Validation.swift */; };
@@ -29,6 +28,9 @@
 		68BE057D286EAB890096D10E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BE057B286EAB890096D10E /* Main.storyboard */; };
 		68BE057F286EAB8C0096D10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68BE057E286EAB8C0096D10E /* Assets.xcassets */; };
 		68BE0582286EAB8C0096D10E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BE0580286EAB8C0096D10E /* LaunchScreen.storyboard */; };
+		68D1F540288B67BE000BBE8A /* ViewControllerBomba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F53F288B67BE000BBE8A /* ViewControllerBomba.swift */; };
+		68D1F547288BC33D000BBE8A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F545288BC33D000BBE8A /* TableViewCell.swift */; };
+		68D1F548288BC33D000BBE8A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D1F546288BC33D000BBE8A /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +49,6 @@
 /* Begin PBXFileReference section */
 		68004742288758C60031A0A4 /* ViewControllerPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerfil.swift; sourceTree = "<group>"; };
 		68004747288880680031A0A4 /* ViewControllerHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistorial.swift; sourceTree = "<group>"; };
-		682E69932888905F00FECEFE /* ViewControllerBomba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBomba.swift; sourceTree = "<group>"; };
 		682E69972888A80A00FECEFE /* ViewControllerRecoverPassFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRecoverPassFinal.swift; sourceTree = "<group>"; };
 		6833B5F6287CD5D4007C4490 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		6833B5F8287DD593007C4490 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
@@ -69,6 +70,9 @@
 		68BE057E286EAB8C0096D10E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68BE0581286EAB8C0096D10E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68BE0583286EAB8C0096D10E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68D1F53F288B67BE000BBE8A /* ViewControllerBomba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBomba.swift; sourceTree = "<group>"; };
+		68D1F545288BC33D000BBE8A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		68D1F546288BC33D000BBE8A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,6 @@
 		6800474428887F190031A0A4 /* Bomba */ = {
 			isa = PBXGroup;
 			children = (
-				682E69932888905F00FECEFE /* ViewControllerBomba.swift */,
 			);
 			path = Bomba;
 			sourceTree = "<group>";
@@ -136,7 +139,9 @@
 		6852E3372880A601008917CF /* Invernadero */ = {
 			isa = PBXGroup;
 			children = (
+				68D1F545288BC33D000BBE8A /* TableViewCell.swift */,
 				6833B600287E036A007C4490 /* ViewControllerInvernaderos.swift */,
+				68D1F546288BC33D000BBE8A /* TableViewCell.xib */,
 			);
 			path = Invernadero;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			children = (
 				68004742288758C60031A0A4 /* ViewControllerPerfil.swift */,
 				6876CB142889AFD0008182A7 /* ViewControllerModificarPerfil.swift */,
+				68D1F53F288B67BE000BBE8A /* ViewControllerBomba.swift */,
 			);
 			path = Perfil;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68BE0582286EAB8C0096D10E /* LaunchScreen.storyboard in Resources */,
+				68D1F548288BC33D000BBE8A /* TableViewCell.xib in Resources */,
 				688B16272873C4F400EC45AD /* GoogleService-Info.plist in Resources */,
 				68BE057F286EAB8C0096D10E /* Assets.xcassets in Resources */,
 				68BE057D286EAB890096D10E /* Main.storyboard in Resources */,
@@ -292,11 +299,12 @@
 				68BE057A286EAB890096D10E /* ViewController.swift in Sources */,
 				689577F328760588003B54D3 /* ViewControllerRecoverPass.swift in Sources */,
 				6833B5F7287CD5D4007C4490 /* Global.swift in Sources */,
+				68D1F547288BC33D000BBE8A /* TableViewCell.swift in Sources */,
 				68004748288880680031A0A4 /* ViewControllerHistorial.swift in Sources */,
-				682E69942888905F00FECEFE /* ViewControllerBomba.swift in Sources */,
 				682E69982888A80A00FECEFE /* ViewControllerRecoverPassFinal.swift in Sources */,
 				6876CB152889AFD0008182A7 /* ViewControllerModificarPerfil.swift in Sources */,
 				6852E332287F3015008917CF /* InvernaderosClass.swift in Sources */,
+				68D1F540288B67BE000BBE8A /* ViewControllerBomba.swift in Sources */,
 				68004743288758C60031A0A4 /* ViewControllerPerfil.swift in Sources */,
 				689577EF287603F5003B54D3 /* ViewControllerRegistro.swift in Sources */,
 				6833B601287E036A007C4490 /* ViewControllerInvernaderos.swift in Sources */,

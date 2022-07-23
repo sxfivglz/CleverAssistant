@@ -16,6 +16,11 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
         }
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableIdentifier")
+        tableView.separatorColor = .green
+        tableView.separatorStyle = .singleLine
+       tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,13 +28,19 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableIdentifier", for: indexPath) as? TableViewCell
         let estacion = estaciones[indexPath.row]
-        cell.textLabel?.text = String(estacion.id)
-        cell.detailTextLabel?.text = estacion.nombre.capitalized
+        cell?.tituloLabel.text = String(estacion.id)
+        cell?.subtituloLabel.text = estacion.nombre.capitalized
         
-        return cell
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 150
+        }
+        return 150
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

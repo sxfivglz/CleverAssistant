@@ -24,6 +24,11 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
         }
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableIdentifier")
+        tableView.separatorColor = .green
+        tableView.separatorStyle = .singleLine
+       tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,13 +36,19 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableIdentifier", for: indexPath) as? TableViewCell
         let invernadero = invernaderos[indexPath.row]
-        cell.textLabel?.text = String(invernadero.id)
-        cell.detailTextLabel?.text = invernadero.nombre.capitalized
-        
-        return cell
+        cell?.tituloLabel.text = String(invernadero.id)
+        cell?.subtituloLabel.text = invernadero.nombre.capitalized
+       
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 120
+        }
+        return 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -45,10 +56,6 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
         let defaults = UserDefaults.standard
         defaults.setValue(invernadero.id, forKey: "Id_Invernadero")
         
-       /* OperationQueue.main.addOperation {
-             [weak self] in
-            self?.performSegue(withIdentifier: "EstSegue", sender: self)
-        }*/
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "EstSegue", sender: self)
 

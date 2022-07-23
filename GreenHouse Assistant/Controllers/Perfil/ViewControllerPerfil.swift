@@ -22,28 +22,140 @@ class ViewControllerPerfil: UIViewController {
         editarBtn.layer.masksToBounds = true
         signOutBtn.layer.cornerRadius = 15
         signOutBtn.layer.masksToBounds = true
-        downloadJSON {
-            print("success")
+        recuperaDatos {
+            print("Datos Recuperados")
         }
-        telefonoTextField.isUserInteractionEnabled = false
-        lastnameTextField.isUserInteractionEnabled = false
-        lastname2TextField.isUserInteractionEnabled = false
-        birthTextField.isUserInteractionEnabled = false
-        nameTextField.isUserInteractionEnabled = false
-        passTextField.isUserInteractionEnabled = false
-        pinTextField.isUserInteractionEnabled = false
-        emailTextField.isUserInteractionEnabled = false
     }
     
     @IBAction func cerrarSesion(_ sender: Any) {
     }
     @IBAction func updateUser(_ sender: Any) {
-    
+        let email:String? = String(emailTextField.text!)
+        let pass:String? = String(passTextField.text!)
+        let nombre:String? = String(nameTextField.text!)
+        let apellido_paterno:String? = String(lastnameTextField.text!)
+        let apellido_materno:String? = String(lastname2TextField.text!)
+        let telefono:String? = String(telefonoTextField.text!)
+        birthTextField.datePickerMode = UIDatePicker.Mode.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let fechaNac = dateFormatter.string(from: birthTextField.date)
+        
+        let codigo:String? = String(pinTextField.text!)
+        
+        if nombre == ""{
+            let dialogMessage = UIAlertController(title: "Campo vacío", message: "Verifique que el campo de nombre no esté vacío", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else if email == ""{
+            let dialogMessage = UIAlertController(title: "Campo vacío", message: "Verifique que el campo de Email no esté vacío", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else if apellido_paterno == ""{
+            let dialogMessage = UIAlertController(title: "Campo vacío", message: "Verifique que el campo de apellido paterno no esté vacío", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else if apellido_materno == ""{
+            let dialogMessage = UIAlertController(title: "Campo vacío", message: "Verifique que el campo de apellido materno no esté vacío", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else if telefono == ""{
+            let dialogMessage = UIAlertController(title: "Campo vacío", message: "Verifique que el campo de teléfono no esté vacío", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else if codigo == ""{
+            let dialogMessage = UIAlertController(title: "Campo vacío", message: "Verifique que el campo de pin de acceso no esté vacío", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+        }else{
+            let Id_user:String = UserDefaults.standard.string(forKey: "idUsuario")!
+            print(Id_user)
+            let x:String = (myConection + "users/update/"+Id_user)
+            guard let url = URL(string: x) else { return }
+            print(url)
+            var request = URLRequest(url: url)
+            request.httpMethod = "PUT"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let tk:String = UserDefaults.standard.string(forKey: "Token")!
+            request.addValue(tk, forHTTPHeaderField: "Authorization")
+            let body: [String: AnyHashable] = [
+                "email": email,
+                "password": pass,
+                "nombre": nombre,
+                "apellido_paterno": apellido_paterno,
+                "apellido_materno": apellido_materno,
+                "tipo_usuario": "Usuario",
+                "estatus": "Activo",
+                "telefono": telefono,
+                "fecha_nacimiento": fechaNac,
+                "pin_acceso":codigo
+            ]
+            
+            request.httpBody = try?
+                JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+            print(body)
+            print(request)
+                let task = URLSession.shared.dataTask(with: request){
+                    data, _, error in
+                    guard let data = data, error == nil else{
+                        return
+                    }
+                    
+                    do{
+                        let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                        let msg = (response as AnyObject)["message"]! as? String
+                        if msg == "ok"
+                        {
+                            OperationQueue.main.addOperation {
+                                let dialogMessage = UIAlertController(title: "Usuario", message: "El usuario ha sido modificado con exito.", preferredStyle: .alert)
+                                let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                dialogMessage.addAction(ok)
+                                self.present(dialogMessage, animated: true, completion: nil)
+                            }
+                        } else {
+                            print("error -----")
+                            print(response)
+                            print("error -----")
+                            var x:Int = 0
+                            if let r = (response as AnyObject)["code"]! as? Int{
+                                x = r
+                            }
+                            OperationQueue.main.addOperation{
+                                switch x {
+                                    case 1:
+                                        let dialogMessage = UIAlertController(title: "Error", message: "El Correo Electronico que ha ingresado no existe, verifiquelo.", preferredStyle: .alert)
+                                        let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                        dialogMessage.addAction(ok)
+                                        self.present(dialogMessage, animated: true, completion: nil)
+                                    case 2:
+                                        let dialogMessage = UIAlertController(title: "Error", message: "La contraseña no coincide, verifiquelo.", preferredStyle: .alert)
+                                        let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                        dialogMessage.addAction(ok)
+                                        self.present(dialogMessage, animated: true, completion: nil)
+                                    default:
+                                        let dialogMessage = UIAlertController(title: "Error", message: "Algo anda mal", preferredStyle: .alert)
+                                        let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                        dialogMessage.addAction(ok)
+                                        self.present(dialogMessage, animated: true, completion: nil)
+                                }
+                            }
+                        }
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+                task.resume()
+            }
     }
-
-    /*------------------------------------------------------------------------------------------------------*/
-   
-    func downloadJSON(completed: @escaping () -> ()){
+    
+    func recuperaDatos(completed: @escaping () -> ()){
         let x:String = myConection + "getUser"
         guard let url = URL(string: x) else { return }
         var request = URLRequest(url:url)
@@ -64,10 +176,6 @@ class ViewControllerPerfil: UIViewController {
                 {
                     DispatchQueue.main.async {
                         self.nameTextField.text = nombre
-                        let id_user = (response as AnyObject)["id"]! as? Int
-                        let defaults = UserDefaults.standard
-                        let usu = id_user
-                        defaults.setValue(usu, forKey: "idUsuario")
                         self.emailTextField.text = (response as AnyObject)["email"]! as? String
                         self.lastnameTextField.text = (response as AnyObject)["apellido_paterno"]! as? String
                         self.lastname2TextField.text = (response as AnyObject)["apellido_materno"]! as? String
@@ -81,30 +189,29 @@ class ViewControllerPerfil: UIViewController {
                         let dataU:Date = formato.date(from: f)!
                         self.birthTextField.date = dataU
                         self.pinTextField.text = String(pin)
-                        
                     }
                 }
                 else{
-                   var x:Int = 0
-                   if let r = (response as AnyObject)["code"]! as? Int{
+                    var x:Int = 0
+                    if let r = (response as AnyObject)["code"]! as? Int{
                         print(response)
                         x = r
-                   }
-                   OperationQueue.main.addOperation{
+                    }
+                    OperationQueue.main.addOperation{
                                                 
-                   switch x {
-                   case 410:
-                       let dialogMessage = UIAlertController(title: "Error", message: "El Pin no coincide.", preferredStyle: .alert)
-                       let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
-                       dialogMessage.addAction(ok)
-                       self.present(dialogMessage, animated: true, completion: nil)
-                   default:
-                       let dialogMessage = UIAlertController(title: "Error", message: "No se que chuchas paso.", preferredStyle: .alert)
-                       let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
-                       dialogMessage.addAction(ok)
-                       self.present(dialogMessage, animated: true, completion: nil)
-                   }
-                }
+                        switch x {
+                            case 410:
+                                let dialogMessage = UIAlertController(title: "Error", message: "El Pin no coincide.", preferredStyle: .alert)
+                                let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                dialogMessage.addAction(ok)
+                                self.present(dialogMessage, animated: true, completion: nil)
+                            default:
+                                let dialogMessage = UIAlertController(title: "Error", message: "No se que chuchas paso.", preferredStyle: .alert)
+                                let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                                dialogMessage.addAction(ok)
+                                self.present(dialogMessage, animated: true, completion: nil)
+                        }
+                    }
                 }
             }
             catch{
@@ -112,8 +219,4 @@ class ViewControllerPerfil: UIViewController {
             }
         }.resume()
     }
-    @IBAction func unwindPerfil( _ seg: UIStoryboardSegue) {
-    }
-
 }
-    
