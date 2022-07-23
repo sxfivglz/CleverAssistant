@@ -31,6 +31,9 @@
 		68D1F540288B67BE000BBE8A /* ViewControllerBomba.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F53F288B67BE000BBE8A /* ViewControllerBomba.swift */; };
 		68D1F547288BC33D000BBE8A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F545288BC33D000BBE8A /* TableViewCell.swift */; };
 		68D1F548288BC33D000BBE8A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D1F546288BC33D000BBE8A /* TableViewCell.xib */; };
+		68D1F54E288C3536000BBE8A /* TableViewCellH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F54C288C3536000BBE8A /* TableViewCellH.swift */; };
+		68D1F54F288C3536000BBE8A /* TableViewCellH.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D1F54D288C3536000BBE8A /* TableViewCellH.xib */; };
+		68D1F553288C527F000BBE8A /* DatoSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F552288C527F000BBE8A /* DatoSensor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,6 +76,9 @@
 		68D1F53F288B67BE000BBE8A /* ViewControllerBomba.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBomba.swift; sourceTree = "<group>"; };
 		68D1F545288BC33D000BBE8A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		68D1F546288BC33D000BBE8A /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		68D1F54C288C3536000BBE8A /* TableViewCellH.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellH.swift; sourceTree = "<group>"; };
+		68D1F54D288C3536000BBE8A /* TableViewCellH.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellH.xib; sourceTree = "<group>"; };
+		68D1F552288C527F000BBE8A /* DatoSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatoSensor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 				6833B5F6287CD5D4007C4490 /* Global.swift */,
 				68529CB02885E693000AF2A6 /* EstacionesClass.swift */,
 				6876CB122888BAF3008182A7 /* UsuariosClass.swift */,
+				68D1F552288C527F000BBE8A /* DatoSensor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				68004747288880680031A0A4 /* ViewControllerHistorial.swift */,
+				68D1F54C288C3536000BBE8A /* TableViewCellH.swift */,
+				68D1F54D288C3536000BBE8A /* TableViewCellH.xib */,
 			);
 			path = Historial;
 			sourceTree = "<group>";
@@ -280,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68D1F54F288C3536000BBE8A /* TableViewCellH.xib in Resources */,
 				68BE0582286EAB8C0096D10E /* LaunchScreen.storyboard in Resources */,
 				68D1F548288BC33D000BBE8A /* TableViewCell.xib in Resources */,
 				688B16272873C4F400EC45AD /* GoogleService-Info.plist in Resources */,
@@ -301,6 +311,7 @@
 				6833B5F7287CD5D4007C4490 /* Global.swift in Sources */,
 				68D1F547288BC33D000BBE8A /* TableViewCell.swift in Sources */,
 				68004748288880680031A0A4 /* ViewControllerHistorial.swift in Sources */,
+				68D1F553288C527F000BBE8A /* DatoSensor.swift in Sources */,
 				682E69982888A80A00FECEFE /* ViewControllerRecoverPassFinal.swift in Sources */,
 				6876CB152889AFD0008182A7 /* ViewControllerModificarPerfil.swift in Sources */,
 				6852E332287F3015008917CF /* InvernaderosClass.swift in Sources */,
@@ -309,6 +320,7 @@
 				689577EF287603F5003B54D3 /* ViewControllerRegistro.swift in Sources */,
 				6833B601287E036A007C4490 /* ViewControllerInvernaderos.swift in Sources */,
 				68529CB12885E693000AF2A6 /* EstacionesClass.swift in Sources */,
+				68D1F54E288C3536000BBE8A /* TableViewCellH.swift in Sources */,
 				68BE0576286EAB890096D10E /* AppDelegate.swift in Sources */,
 				68BE0578286EAB890096D10E /* SceneDelegate.swift in Sources */,
 				68529CAF2885E3AD000AF2A6 /* ViewControllerEstaciones.swift in Sources */,

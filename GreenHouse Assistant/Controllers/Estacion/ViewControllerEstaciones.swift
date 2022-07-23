@@ -20,7 +20,7 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableIdentifier")
         tableView.separatorColor = .green
         tableView.separatorStyle = .singleLine
-       tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,6 +35,9 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
               return 0
           } else {
               self.tableView.backgroundView = nil
+            tableView.separatorColor = .green
+            tableView.separatorStyle = .singleLine
+            tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
             return estaciones.count
           }
     }
