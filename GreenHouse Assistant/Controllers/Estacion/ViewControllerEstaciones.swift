@@ -22,9 +22,21 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
         tableView.separatorStyle = .singleLine
        tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
     }
-    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return estaciones.count
+        if estaciones.count == 0{
+              let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+              emptyLabel.text = "No se ha asignado ninguna estación a este invernadero. \n Por favor pide a tu administrador asignarte una."
+            emptyLabel.font = UIFont.systemFont(ofSize: 35)
+            emptyLabel.numberOfLines =  0
+            emptyLabel.textAlignment = NSTextAlignment.center
+              self.tableView.backgroundView = emptyLabel
+              self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+              return 0
+          } else {
+              self.tableView.backgroundView = nil
+            return estaciones.count
+          }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

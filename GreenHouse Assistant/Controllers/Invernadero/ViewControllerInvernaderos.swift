@@ -32,7 +32,19 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return invernaderos.count
+        if invernaderos.count == 0{
+              let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+              emptyLabel.text = "No se te ha asignado ningún invernadero. \n Por favor pide a tu administrador asignarte uno."
+            emptyLabel.font = UIFont.systemFont(ofSize: 35)
+            emptyLabel.numberOfLines =  0
+            emptyLabel.textAlignment = NSTextAlignment.center
+              self.tableView.backgroundView = emptyLabel
+              self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+              return 0
+          } else {
+              self.tableView.backgroundView = nil
+            return invernaderos.count
+          }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
