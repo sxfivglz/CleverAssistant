@@ -119,7 +119,7 @@ class ViewControllerRegistro: UIViewController {
                             dialogMessage.addAction(ok)
                             self.present(dialogMessage, animated: true, completion: nil)
                         default:
-                            let dialogMessage = UIAlertController(title: "Error", message: "No se que chuchas paso.", preferredStyle: .alert)
+                            let dialogMessage = UIAlertController(title: "Error", message: "Error del servidor", preferredStyle: .alert)
                             let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                             dialogMessage.addAction(ok)
                             self.present(dialogMessage, animated: true, completion: nil)

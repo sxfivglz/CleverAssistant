@@ -28,7 +28,61 @@ class ViewControllerPerfil: UIViewController {
     }
     
     @IBAction func cerrarSesion(_ sender: Any) {
-    }
+            let x:String = myConection + "logout"
+            guard let url = URL(string: x) else { return }
+            var request = URLRequest(url:url)
+            request.httpMethod = "GET"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let tk:String = UserDefaults.standard.string(forKey: "Token")!
+            request.addValue(tk, forHTTPHeaderField: "Authorization")
+                    
+            let task = URLSession.shared.dataTask(with: request){
+                data, _, error in
+                guard let data = data, error == nil else{
+                    return
+                }
+                do{
+                       let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                       let msg = (response as AnyObject)["revoked"]! as? Int
+                       if msg == 1
+                        {
+                           OperationQueue.main.addOperation {
+                               self.mostrarAlerta()
+                           }
+                        
+                        }
+                        else{
+                           print("error -----")
+                           print(response)
+                           print("error -----")
+                           var x:Int = 0
+                           if let r = (response as AnyObject)["code"]! as? Int{
+                               x = r
+                           }
+                           OperationQueue.main.addOperation{
+                                                        
+                           switch x {
+                           case 1:
+                               let dialogMessage = UIAlertController(title: "Error", message: "Verifique su conexion a interne.", preferredStyle: .alert)
+                               let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                               dialogMessage.addAction(ok)
+                               self.present(dialogMessage, animated: true, completion: nil)
+                           default:
+                               let dialogMessage = UIAlertController(title: "Error", message: "Error del servidor", preferredStyle: .alert)
+                               let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
+                               dialogMessage.addAction(ok)
+                               self.present(dialogMessage, animated: true, completion: nil)
+                           }
+                        }
+                        }
+                    }
+                    catch{
+                        print(error)
+                    }
+                }
+                task.resume()
+}
+    
     @IBAction func updateUser(_ sender: Any) {
         let email:String? = String(emailTextField.text!)
         let pass:String? = String(passTextField.text!)
@@ -219,4 +273,16 @@ class ViewControllerPerfil: UIViewController {
             }
         }.resume()
     }
+    
+    
+    func mostrarAlerta() {
+        let alert = UIAlertController(title: "Cierre sesión", message: "La sesión se ha cerrado correctamente",         preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Ok",
+                                          style: UIAlertAction.Style.default,
+                                          handler: {(_: UIAlertAction!) in
+                                            self.performSegue(withIdentifier: "unwindCerrarSesion", sender: self)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
 }

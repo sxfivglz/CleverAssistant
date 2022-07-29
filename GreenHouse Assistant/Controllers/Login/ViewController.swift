@@ -109,7 +109,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func unwindRecoverPass( _ seg: UIStoryboardSegue) {
     }
-    
+    @IBAction func unwindCerrarSesion( _ seg: UIStoryboardSegue) {
+    }
     func recuperaDatosUsuario(completed: @escaping () -> ()){
             let x:String = myConection + "getUser"
             guard let url = URL(string: x) else { return }

@@ -18,6 +18,8 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.hidesBackButton = true
+        
         downloadJSON {
             self.tableView.reloadData()
             print("success")

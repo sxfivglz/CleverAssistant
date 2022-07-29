@@ -6,7 +6,9 @@ class ViewControllerSensores: UIViewController{
     @IBOutlet weak var pickerSensores: UIPickerView!
     @IBOutlet weak var labelNombreSensor: UILabel!
     @IBOutlet weak var labelTipoSensor: UILabel!
-    var ArraySens = ["-----------------","Humedad","Caudal","Temperatura"]
+    @IBOutlet weak var NombreSensor: UILabel!
+    @IBOutlet weak var Fecha: UILabel!
+    var ArraySens = ["Humedad","Caudal","Temperatura"]
     var datos = [DatoSensorClass]()
     
     /*Humedad,Caudal,Temperatura*/
@@ -16,6 +18,9 @@ class ViewControllerSensores: UIViewController{
         pickerSensores.delegate = self
         labelNombreSensor.isHidden = true
         labelTipoSensor.isHidden = true
+        labelDato.isHidden = true
+        NombreSensor.isHidden = true
+        Fecha.isHidden = true
         pickerSensores.selectRow(0, inComponent: 0, animated: true)
     }
 }
@@ -46,6 +51,9 @@ extension ViewControllerSensores: UIPickerViewDataSource, UIPickerViewDelegate{
         
         labelNombreSensor.isHidden = false
         labelTipoSensor.isHidden = false
+        labelDato.isHidden = false
+        NombreSensor.isHidden = false
+        Fecha.isHidden = false
         labelNombreSensor.text = (myString)
         recuperaSensor {
             print("success")
@@ -119,7 +127,7 @@ extension ViewControllerSensores: UIPickerViewDataSource, UIPickerViewDelegate{
                 } else {
                     OperationQueue.main.addOperation{
                         
-                            let dialogMessage = UIAlertController(title: "Error", message: "El Correo Electronico que ha ingresado no existe, verifiquelo.", preferredStyle: .alert)
+                            let dialogMessage = UIAlertController(title: "Dato Sensor", message: "No existen datos registrados del sensor seleccionado para la estación indicada.", preferredStyle: .alert)
                             let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                             dialogMessage.addAction(ok)
                             self.present(dialogMessage, animated: true, completion: nil)

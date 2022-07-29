@@ -1,20 +1,25 @@
 //
-//  TableViewCellH.swift
+//  TableViewCellHF.swift
 //  GreenHouse Assistant
 //
-//  Created by Mac19 on 23/07/22.
+//  Created by Mac19 on 25/07/22.
 //
 
 import UIKit
 
-class TableViewCellH: UITableViewCell {
+class TableViewCellHF: UITableViewCell {
 
     @IBOutlet weak var invernaderoLabel: UILabel!
     @IBOutlet weak var estacionLabel: UILabel!
+    @IBOutlet weak var usuarioLabel: UILabel!
     @IBOutlet weak var fechaLabel: UILabel!
     @IBOutlet weak var tipoactLabel: UILabel!
-    @IBOutlet weak var usuarioLabel: UILabel!
-    
+    @IBOutlet weak var valorunoLabel: UILabel!
+    @IBOutlet weak var valordosLabel: UILabel!
+    @IBOutlet weak var valortresLabel: UILabel!
+    @IBOutlet weak var valorcuatroLabel: UILabel!
+    @IBOutlet weak var valorcincoLabel: UILabel!
+    @IBOutlet weak var valorseisLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
