@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 
-class ViewControllerPerfil: UIViewController {
+class ViewControllerPerfil: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var telefonoTextField: UITextField!
     @IBOutlet weak var lastname2TextField: UITextField!
@@ -22,6 +22,8 @@ class ViewControllerPerfil: UIViewController {
         editarBtn.layer.masksToBounds = true
         signOutBtn.layer.cornerRadius = 15
         signOutBtn.layer.masksToBounds = true
+        pinTextField.delegate = self
+        
         recuperaDatos {
             print("Datos Recuperados")
         }
@@ -63,7 +65,7 @@ class ViewControllerPerfil: UIViewController {
                                                         
                            switch x {
                            case 1:
-                               let dialogMessage = UIAlertController(title: "Error", message: "Verifique su conexion a interne.", preferredStyle: .alert)
+                               let dialogMessage = UIAlertController(title: "Error", message: "Verifique su conexion a internet.", preferredStyle: .alert)
                                let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                                dialogMessage.addAction(ok)
                                self.present(dialogMessage, animated: true, completion: nil)
@@ -234,7 +236,7 @@ class ViewControllerPerfil: UIViewController {
                         self.lastnameTextField.text = (response as AnyObject)["apellido_paterno"]! as? String
                         self.lastname2TextField.text = (response as AnyObject)["apellido_materno"]! as? String
                         self.telefonoTextField.text = (response as AnyObject)["telefono"]! as? String
-                        let pin:Int16 = ((response as AnyObject)["pin_acceso"]! as? Int16)!
+                        let pin:Int = ((response as AnyObject)["pin_acceso"]! as? Int)!
                         let f = ((response as AnyObject)["fecha_nacimiento"]! as? String)!
                         let formato = DateFormatter()
                         formato.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -285,4 +287,14 @@ class ViewControllerPerfil: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool
+    {
+        let maxLength = 6
+        let currentString: NSString = pinTextField.text! as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+  
 }

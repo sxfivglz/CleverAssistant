@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewControllerRegistro: UIViewController {
+class ViewControllerRegistro: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var lastName1TextField: UITextField!
@@ -10,13 +10,16 @@ class ViewControllerRegistro: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var pinTextField: UITextField!
-    
     @IBOutlet weak var registerBtn: UIButton!
-    
+    var maxLength:Int
+        = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         registerBtn.layer.cornerRadius = 15
         registerBtn.layer.masksToBounds = true
+        pinTextField.delegate = self
+        
+        
     }
     
     @IBAction func Registrar(_ sender: Any) {
@@ -145,4 +148,14 @@ class ViewControllerRegistro: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }
+   
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool
+    {
+        let maxLength = 6
+        let currentString: NSString = pinTextField.text! as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+    
 }
