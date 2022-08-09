@@ -23,7 +23,10 @@ class ViewControllerPerfil: UIViewController, UITextFieldDelegate {
         signOutBtn.layer.cornerRadius = 15
         signOutBtn.layer.masksToBounds = true
         pinTextField.delegate = self
-        
+        let loc = Locale(identifier: "es_MX")
+        birthTextField.locale = loc
+        var calendar = Calendar.current
+        calendar.locale = loc
         recuperaDatos {
             print("Datos Recuperados")
         }

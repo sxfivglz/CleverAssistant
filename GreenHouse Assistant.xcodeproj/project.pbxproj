@@ -13,6 +13,7 @@
 		6833B5F7287CD5D4007C4490 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B5F6287CD5D4007C4490 /* Global.swift */; };
 		6833B5F9287DD593007C4490 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B5F8287DD593007C4490 /* Validation.swift */; };
 		6833B601287E036A007C4490 /* ViewControllerInvernaderos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6833B600287E036A007C4490 /* ViewControllerInvernaderos.swift */; };
+		683A425728A18A7700135955 /* SensoresClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683A425628A18A7700135955 /* SensoresClass.swift */; };
 		68529CAF2885E3AD000AF2A6 /* ViewControllerEstaciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68529CAE2885E3AC000AF2A6 /* ViewControllerEstaciones.swift */; };
 		68529CB12885E693000AF2A6 /* EstacionesClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68529CB02885E693000AF2A6 /* EstacionesClass.swift */; };
 		68529CB728871DBF000AF2A6 /* ViewControllerSensores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68529CB628871DBF000AF2A6 /* ViewControllerSensores.swift */; };
@@ -60,6 +61,7 @@
 		6833B5F6287CD5D4007C4490 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		6833B5F8287DD593007C4490 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		6833B600287E036A007C4490 /* ViewControllerInvernaderos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInvernaderos.swift; sourceTree = "<group>"; };
+		683A425628A18A7700135955 /* SensoresClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensoresClass.swift; sourceTree = "<group>"; };
 		68529CAE2885E3AC000AF2A6 /* ViewControllerEstaciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerEstaciones.swift; sourceTree = "<group>"; };
 		68529CB02885E693000AF2A6 /* EstacionesClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstacionesClass.swift; sourceTree = "<group>"; };
 		68529CB628871DBF000AF2A6 /* ViewControllerSensores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSensores.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				6876CB122888BAF3008182A7 /* UsuariosClass.swift */,
 				68D1F552288C527F000BBE8A /* DatoSensor.swift */,
 				68D1F554288CFE76000BBE8A /* Historial.swift */,
+				683A425628A18A7700135955 /* SensoresClass.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				68529CB728871DBF000AF2A6 /* ViewControllerSensores.swift in Sources */,
 				68BE057A286EAB890096D10E /* ViewController.swift in Sources */,
+				683A425728A18A7700135955 /* SensoresClass.swift in Sources */,
 				689577F328760588003B54D3 /* ViewControllerRecoverPass.swift in Sources */,
 				6833B5F7287CD5D4007C4490 /* Global.swift in Sources */,
 				68D1F547288BC33D000BBE8A /* TableViewCell.swift in Sources */,

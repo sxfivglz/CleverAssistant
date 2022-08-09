@@ -30,7 +30,12 @@ class ViewControllerHistorialFinal: UIViewController {
         super.viewDidLoad()
         invernaderoLabel.text = "Invernadero: \(inv)"
         estacionLabel.text = "Estación: \(est)"
-        fechaLabel.text = "Fecha: \(fecha)"
+        let formato = DateFormatter()
+        formato.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        formato.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        formato.formatterBehavior = .default
+        let dataU:Date = formato.date(from: fecha)!
+        fechaLabel.text = "Fecha: \(dataU)"
         usuarioLabel.text = "Usuario: \(usu)"
         tipoactLabel.text = "Tipo de activación: \(ta)"
         valor1Label.text = "Valor 1: \(v1)"

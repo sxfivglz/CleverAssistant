@@ -84,6 +84,11 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         fechafinPickerView.datePickerMode = .date
         fechainicioTextField.inputAccessoryView = createToolbar()
         fechafinTextField.inputAccessoryView = createToolbarFinal()
+        let loc = Locale(identifier: "es_MX")
+        var calendar = Calendar.current
+        calendar.locale = loc
+        fechainicioPickerView.locale = loc
+        fechafinPickerView.locale = loc
     }
     
     @IBAction func buscarHistorial(_ sender: Any) {

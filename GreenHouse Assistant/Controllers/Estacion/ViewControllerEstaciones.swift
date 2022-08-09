@@ -53,15 +53,16 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0{
-            return 150
+            return 115
         }
-        return 150
+        return 115
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let estacion = estaciones[indexPath.row]
         let defaults = UserDefaults.standard
         defaults.setValue(estacion.id, forKey: "Id_Estacion")
+        defaults.setValue(estacion.nombre, forKey: "nombreEstacion")
         
         OperationQueue.main.addOperation {
              [weak self] in

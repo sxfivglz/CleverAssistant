@@ -18,7 +18,10 @@ class ViewControllerRegistro: UIViewController, UITextFieldDelegate {
         registerBtn.layer.cornerRadius = 15
         registerBtn.layer.masksToBounds = true
         pinTextField.delegate = self
-        
+        let loc = Locale(identifier: "es_MX")
+        birthPicker.locale = loc
+        var calendar = Calendar.current
+        calendar.locale = loc
         
     }
     
@@ -30,7 +33,6 @@ class ViewControllerRegistro: UIViewController, UITextFieldDelegate {
         let correo:String? = String(emailTextField.text!)
         let contra:String? = String(passTextField.text!)
         let pin_acceso:String? = String(pinTextField.text!)
-        
         birthPicker.datePickerMode = UIDatePicker.Mode.date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
