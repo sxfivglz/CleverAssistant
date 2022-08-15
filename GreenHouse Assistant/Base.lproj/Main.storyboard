@@ -589,7 +589,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d0S-rj-qgp">
-                                <rect key="frame" x="0.0" y="412" width="1024" height="904"/>
+                                <rect key="frame" x="0.0" y="497" width="1024" height="819"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Invernadero" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dK6-Z6-iHq">
@@ -660,6 +660,12 @@
                                     <action selector="buscarHistorial:" destination="h77-Me-Jr1" eventType="touchUpInside" id="Odm-4m-e8M"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Datos actualizados!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nN-Dg-JCc">
+                                <rect key="frame" x="0.0" y="422" width="1024" height="42"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VLs-2C-ept"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -675,12 +681,14 @@
                             <constraint firstItem="oqj-M5-bSk" firstAttribute="leading" secondItem="VLs-2C-ept" secondAttribute="leading" constant="400" id="MSg-Nn-utO"/>
                             <constraint firstItem="d0S-rj-qgp" firstAttribute="leading" secondItem="VLs-2C-ept" secondAttribute="leading" id="Pnx-P7-cnC"/>
                             <constraint firstItem="mJ6-7G-F48" firstAttribute="top" secondItem="VLs-2C-ept" secondAttribute="top" constant="20" id="QGW-bd-MPL"/>
-                            <constraint firstItem="d0S-rj-qgp" firstAttribute="top" secondItem="oqj-M5-bSk" secondAttribute="bottom" constant="30" id="Qc2-kp-rDR"/>
+                            <constraint firstItem="8nN-Dg-JCc" firstAttribute="leading" secondItem="VLs-2C-ept" secondAttribute="leading" id="QU5-C1-51t"/>
+                            <constraint firstItem="d0S-rj-qgp" firstAttribute="top" secondItem="oqj-M5-bSk" secondAttribute="bottom" constant="115" id="Qc2-kp-rDR"/>
                             <constraint firstItem="F78-EE-SDx" firstAttribute="top" secondItem="FP2-bt-ddo" secondAttribute="bottom" constant="50" id="R1o-2g-JXD"/>
                             <constraint firstItem="d0S-rj-qgp" firstAttribute="bottom" secondItem="VLs-2C-ept" secondAttribute="bottom" id="UOT-gO-2c5"/>
                             <constraint firstItem="VPb-MK-RG7" firstAttribute="leading" secondItem="FP2-bt-ddo" secondAttribute="trailing" constant="85.5" id="UlA-I5-foO"/>
                             <constraint firstItem="FP2-bt-ddo" firstAttribute="leading" secondItem="dK6-Z6-iHq" secondAttribute="trailing" constant="88.5" id="XU3-df-hRF"/>
                             <constraint firstItem="VLs-2C-ept" firstAttribute="trailing" secondItem="mJ6-7G-F48" secondAttribute="trailing" id="cod-PD-NHo"/>
+                            <constraint firstItem="VLs-2C-ept" firstAttribute="trailing" secondItem="8nN-Dg-JCc" secondAttribute="trailing" id="d1h-ek-DYe"/>
                             <constraint firstItem="VPb-MK-RG7" firstAttribute="baseline" secondItem="dK6-Z6-iHq" secondAttribute="baseline" id="fw7-fg-o5L"/>
                             <constraint firstItem="mJ6-7G-F48" firstAttribute="leading" secondItem="VLs-2C-ept" secondAttribute="leading" id="hoN-p0-8xy"/>
                             <constraint firstItem="fDz-7A-3HI" firstAttribute="leading" secondItem="F78-EE-SDx" secondAttribute="trailing" constant="87" id="iJk-3y-eZf"/>
@@ -688,6 +696,7 @@
                             <constraint firstItem="VLs-2C-ept" firstAttribute="trailing" secondItem="VPb-MK-RG7" secondAttribute="trailing" constant="50" id="q0h-Hg-gcA"/>
                             <constraint firstItem="fDz-7A-3HI" firstAttribute="top" secondItem="VPb-MK-RG7" secondAttribute="bottom" constant="50" id="qx0-jx-iCD"/>
                             <constraint firstItem="oqj-M5-bSk" firstAttribute="top" secondItem="F78-EE-SDx" secondAttribute="bottom" constant="40" id="ryb-Z9-tw8"/>
+                            <constraint firstItem="8nN-Dg-JCc" firstAttribute="top" secondItem="oqj-M5-bSk" secondAttribute="bottom" constant="40" id="uFQ-Ab-Fuu"/>
                             <constraint firstItem="VPb-MK-RG7" firstAttribute="baseline" secondItem="FP2-bt-ddo" secondAttribute="baseline" id="x5w-h0-CgO"/>
                             <constraint firstItem="VLs-2C-ept" firstAttribute="trailing" secondItem="fDz-7A-3HI" secondAttribute="trailing" constant="50" id="yG5-4a-6KL"/>
                             <constraint firstItem="KOK-7Q-H3i" firstAttribute="top" secondItem="dK6-Z6-iHq" secondAttribute="bottom" constant="50" id="zFd-2S-vYf"/>
@@ -700,6 +709,7 @@
                         <outlet property="fechafinTextField" destination="fDz-7A-3HI" id="GDP-Bk-Mcf"/>
                         <outlet property="fechainicioTextField" destination="F78-EE-SDx" id="n1C-Gy-bCA"/>
                         <outlet property="invernaderoTextField" destination="dK6-Z6-iHq" id="xE5-Ci-GQX"/>
+                        <outlet property="labelActualizacion" destination="8nN-Dg-JCc" id="Fzp-Yf-6L5"/>
                         <outlet property="tableView" destination="d0S-rj-qgp" id="hef-Gg-F8n"/>
                         <outlet property="tipoestacionTextField" destination="VPb-MK-RG7" id="Cbd-Kw-NrE"/>
                         <outlet property="usuarioTextField" destination="KOK-7Q-H3i" id="w1f-um-VU9"/>

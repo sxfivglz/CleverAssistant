@@ -1,5 +1,8 @@
 import UIKit
-class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
+import PusherSwift
+
+class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, PusherDelegate {
+    var pusher: Pusher!
     //TextFields
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var invernaderoTextField: UITextField!
@@ -9,6 +12,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var fechainicioTextField: UITextField!
     @IBOutlet weak var fechafinTextField: UITextField!
     @IBOutlet weak var buscarBtn: UIButton!
+    @IBOutlet weak var labelActualizacion: UILabel!
     //Pickers
     var invernaderoPickerView = UIPickerView()
     var estacionPickerView = UIPickerView()
@@ -44,6 +48,36 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         rellenaInvernadero{
             print("success")
         }
+        let options = PusherClientOptions(
+                host: .cluster("us2")
+              )
+
+        pusher = Pusher(
+            key: "0277d6e251d4f4b4a6d9",
+            options: options
+        )
+
+        pusher.delegate = self
+        
+        let pushEstacion:String = UserDefaults.standard.string(forKey: "nombreEstacion")!
+        
+        // subscribe to channel
+        let channel = pusher.subscribe(pushEstacion)
+
+        // bind a callback to handle an event
+        let _ = channel.bind(eventName: "my-event", eventCallback: { (event: PusherEvent) in
+            if let data = event.data {
+                // you can parse the data as necessary
+                self.downloadJSONPusher {
+                    print("success")
+            }
+                    self.labelActualizacion.isHidden = true
+                    Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.showLabel), userInfo: nil, repeats: false)
+                        
+                }
+        })
+        pusher.connect()
+        labelActualizacion.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -87,6 +121,16 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         fechainicioPickerView.locale = loc
         fechafinPickerView.locale = loc
     }
+    
+    
+    // print Pusher debug messages
+    func debugLog(message: String) {
+        print(message)
+    }
+    
+    @objc func showLabel() {
+        self.labelActualizacion.isHidden = false
+        }
     
     @IBAction func buscarHistorial(_ sender: Any) {
         downloadJSON {
@@ -167,6 +211,48 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    //downloadJSONPusher
+    func downloadJSONPusher(completed: @escaping () -> ()){
+        let tk:String = UserDefaults.standard.string(forKey: "Token")!
+        let url = URL(string: myConection + "sensores/getHistorial")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(tk, forHTTPHeaderField: "Authorization")
+        let pushIdEstacion:String = UserDefaults.standard.string(forKey: "Id_Estacion")!
+        let dateP = Date()
+        let dateFormatterP = DateFormatter()
+        dateFormatterP.dateFormat = "yyyy-MM-dd"
+        
+        let body: [String: AnyHashable] = [
+            "invernadero": "0",
+            "estacion": String(pushIdEstacion),
+            "tipo_activacion": "Todos",
+            "id_usuario": "0",
+            "fecha_inicio": dateFormatterP.string(from: dateP),
+            "fecha_fin": dateFormatterP.string(from: dateP)
+        ]
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        
+        URLSession.shared.dataTask(with: request){ data, response, err in
+            if err == nil {
+                do {
+                    self.historial = try JSONDecoder().decode([HistorialClass].self, from: data!)
+                    
+                    DispatchQueue.main.async {
+                        completed()
+                    
+                    self.tableView.reloadData()
+                    }
+                }
+                catch {
+                    print("Error api")
+                }
+            }
+        }.resume()
+    }
+    
     //JSON
     func downloadJSON(completed: @escaping () -> ()){
         let tk:String = UserDefaults.standard.string(forKey: "Token")!
@@ -184,19 +270,13 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
             "fecha_inicio": FechaInicio,
             "fecha_fin": FechaFin
         ]
-        print(body)
         
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-        print(1)
-    
+        
         URLSession.shared.dataTask(with: request){ data, response, err in
             if err == nil {
-                print(2)
                 do {
-                    print(3)
                     self.historial = try JSONDecoder().decode([HistorialClass].self, from: data!)
-                    print(self.historial)
-                    print(4)
                     
                     DispatchQueue.main.async {
                         completed()
