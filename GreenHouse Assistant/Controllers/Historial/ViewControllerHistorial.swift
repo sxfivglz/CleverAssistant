@@ -196,11 +196,6 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
                     print(3)
                     self.historial = try JSONDecoder().decode([HistorialClass].self, from: data!)
                     print(self.historial)
-                    print("-----------------------------------------------")
-                    print("-----------------------------------------------")
-                    print("-----------------------------------------------")
-                    print("-----------------------------------------------")
-                    
                     print(4)
                     
                     DispatchQueue.main.async {

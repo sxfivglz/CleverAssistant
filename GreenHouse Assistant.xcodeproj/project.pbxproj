@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,20 +42,8 @@
 		68D1F555288CFE76000BBE8A /* Historial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D1F554288CFE76000BBE8A /* Historial.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		6839C753287611280065A6C7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		44F04618C40413EEF2B2274B /* Pods-GreenHouse Assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenHouse Assistant.release.xcconfig"; path = "Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant.release.xcconfig"; sourceTree = "<group>"; };
 		68004742288758C60031A0A4 /* ViewControllerPerfil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPerfil.swift; sourceTree = "<group>"; };
 		68004747288880680031A0A4 /* ViewControllerHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHistorial.swift; sourceTree = "<group>"; };
 		682E69972888A80A00FECEFE /* ViewControllerRecoverPassFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRecoverPassFinal.swift; sourceTree = "<group>"; };
@@ -91,6 +79,7 @@
 		68D1F54D288C3536000BBE8A /* TableViewCellH.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellH.xib; sourceTree = "<group>"; };
 		68D1F552288C527F000BBE8A /* DatoSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatoSensor.swift; sourceTree = "<group>"; };
 		68D1F554288CFE76000BBE8A /* Historial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Historial.swift; sourceTree = "<group>"; };
+		89788C761D6707B3C3ADA789 /* Pods-GreenHouse Assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenHouse Assistant.debug.xcconfig"; path = "Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +210,7 @@
 			children = (
 				68BE0574286EAB890096D10E /* GreenHouse Assistant */,
 				68BE0573286EAB890096D10E /* Products */,
+				9AB6C3F0E73AF87D581497D6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +239,15 @@
 			path = "GreenHouse Assistant";
 			sourceTree = "<group>";
 		};
+		9AB6C3F0E73AF87D581497D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89788C761D6707B3C3ADA789 /* Pods-GreenHouse Assistant.debug.xcconfig */,
+				44F04618C40413EEF2B2274B /* Pods-GreenHouse Assistant.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,10 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68BE0586286EAB8C0096D10E /* Build configuration list for PBXNativeTarget "GreenHouse Assistant" */;
 			buildPhases = (
+				E16878ACF73826AFE72A28F5 /* [CP] Check Pods Manifest.lock */,
 				68BE056E286EAB890096D10E /* Sources */,
 				68BE056F286EAB890096D10E /* Frameworks */,
 				68BE0570286EAB890096D10E /* Resources */,
-				6839C753287611280065A6C7 /* Embed Frameworks */,
+				3A195876541E690F2DF35BBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +318,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A195876541E690F2DF35BBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenHouse Assistant/Pods-GreenHouse Assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E16878ACF73826AFE72A28F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GreenHouse Assistant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		68BE056E286EAB890096D10E /* Sources */ = {
@@ -493,6 +535,7 @@
 		};
 		68BE0587286EAB8C0096D10E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89788C761D6707B3C3ADA789 /* Pods-GreenHouse Assistant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -511,6 +554,7 @@
 		};
 		68BE0588286EAB8C0096D10E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44F04618C40413EEF2B2274B /* Pods-GreenHouse Assistant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

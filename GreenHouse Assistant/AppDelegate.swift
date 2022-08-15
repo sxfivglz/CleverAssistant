@@ -6,16 +6,46 @@
 //
 
 import UIKit
+import PusherSwift
+
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate, PusherDelegate {
+    var pusher: Pusher!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let fontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0)]
          UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+        
+        let options = PusherClientOptions(
+                host: .cluster("us2")
+              )
+
+        pusher = Pusher(
+            key: "0277d6e251d4f4b4a6d9",
+            options: options
+        )
+
+        pusher.delegate = self
+
+        // subscribe to channel
+        let channel = pusher.subscribe("Estacion-1")
+
+        // bind a callback to handle an event
+        let _ = channel.bind(eventName: "my-event", eventCallback: { (event: PusherEvent) in
+            if let data = event.data {
+                // you can parse the data as necessary
+                print(data)
+                }
+        })
+        pusher.connect()
+        
         return true
+    }
+    
+    // print Pusher debug messages
+    func debugLog(message: String) {
+        print(message)
     }
 
     // MARK: UISceneSession Lifecycle
@@ -35,4 +65,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
 }
-
