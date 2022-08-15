@@ -24,18 +24,21 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
         }
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableIdentifier")
         tableView.separatorColor = .green
         tableView.separatorStyle = .singleLine
-       tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
-    }
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        navigationItem.hidesBackButton = true
+        tableView.tableFooterView = UIView()
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "tableIdentifier")
+        
+       }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if invernaderos.count == 0{
               let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
               emptyLabel.text = "No se te ha asignado ningún invernadero. \n Por favor pide a tu administrador asignarte uno."
             emptyLabel.font = UIFont.systemFont(ofSize: 35)
+            emptyLabel.textColor = .white
             emptyLabel.numberOfLines =  0
             emptyLabel.textAlignment = NSTextAlignment.center
               self.tableView.backgroundView = emptyLabel
@@ -43,6 +46,9 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
               return 0
           } else {
               self.tableView.backgroundView = nil
+            tableView.separatorColor = .green
+            tableView.separatorStyle = .singleLine
+            tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
             return invernaderos.count
           }
     }
@@ -52,7 +58,9 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
         let invernadero = invernaderos[indexPath.row]
         cell?.tituloLabel.text = String(invernadero.id)
         cell?.subtituloLabel.text = invernadero.nombre.capitalized
-       
+        let bgv = UIView()
+        bgv.backgroundColor = UIColor.systemBlue
+        cell?.selectedBackgroundView = bgv
         return cell!
     }
     

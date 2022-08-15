@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,37 +18,38 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invernadero" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsv-hs-prg">
-                        <rect key="frame" x="60" y="15" width="179.5" height="39"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="60" y="15" width="169" height="39"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estacion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIM-wA-DKP">
-                        <rect key="frame" x="80" y="59" width="129" height="39"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="80" y="59" width="122" height="39"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gm-h2-KeS">
-                        <rect key="frame" x="80" y="103" width="66" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="80" y="103" width="65" height="30"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZd-3Z-F1O">
-                        <rect key="frame" x="80" y="138" width="83" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="80" y="138" width="81.5" height="30"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipo de activación" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBY-rw-1x1">
-                        <rect key="frame" x="60" y="173" width="195.5" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="60" y="173" width="191" height="30"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                        <color key="textColor" systemColor="systemBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Tda-mC-JIL">
-                        <rect key="frame" x="570" y="75" width="37" height="86.5"/>
+                        <rect key="frame" x="547" y="75" width="37" height="86.5"/>
+                        <color key="tintColor" red="0.65386569500000002" green="0.96330398319999999" blue="0.54166376589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="37" id="ZIe-tu-FAJ"/>
                             <constraint firstAttribute="height" constant="90" id="jzk-3v-ypr"/>
@@ -62,7 +64,7 @@
                     <constraint firstItem="RIM-wA-DKP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="60" id="Q08-EQ-kzd"/>
                     <constraint firstItem="fBY-rw-1x1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="QkH-TB-jD3"/>
                     <constraint firstItem="9gm-h2-KeS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="60" id="TTk-DP-aMI"/>
-                    <constraint firstItem="Tda-mC-JIL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="i2x-yv-iE0"/>
+                    <constraint firstItem="Tda-mC-JIL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-23" id="i2x-yv-iE0"/>
                     <constraint firstItem="9gm-h2-KeS" firstAttribute="top" secondItem="RIM-wA-DKP" secondAttribute="bottom" constant="5" id="sTl-7W-bXc"/>
                     <constraint firstItem="RIM-wA-DKP" firstAttribute="top" secondItem="zsv-hs-prg" secondAttribute="bottom" constant="5" id="txY-Fv-gyC"/>
                     <constraint firstItem="fBY-rw-1x1" firstAttribute="top" secondItem="QZd-3Z-F1O" secondAttribute="bottom" constant="5" id="xxi-rX-36b"/>
@@ -70,6 +72,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" systemColor="systemGreenColor"/>
             <connections>
                 <outlet property="estacionLabel" destination="RIM-wA-DKP" id="LTY-37-Nbt"/>
                 <outlet property="fechaLabel" destination="9gm-h2-KeS" id="0eA-2c-QV5"/>
@@ -82,5 +85,11 @@
     </objects>
     <resources>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

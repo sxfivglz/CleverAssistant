@@ -21,6 +21,7 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
         tableView.separatorColor = .green
         tableView.separatorStyle = .singleLine
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        tableView.tableFooterView = UIView()
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,6 +30,7 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
               emptyLabel.text = "No se ha asignado ninguna estación a este invernadero. \n Por favor pide a tu administrador asignarte una."
             emptyLabel.font = UIFont.systemFont(ofSize: 35)
             emptyLabel.numberOfLines =  0
+            emptyLabel.textColor = .white
             emptyLabel.textAlignment = NSTextAlignment.center
               self.tableView.backgroundView = emptyLabel
               self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -47,7 +49,9 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
         let estacion = estaciones[indexPath.row]
         cell?.tituloLabel.text = String(estacion.id)
         cell?.subtituloLabel.text = estacion.nombre.capitalized
-        
+        let bgv = UIView()
+        bgv.backgroundColor = UIColor.systemBlue
+        cell?.selectedBackgroundView = bgv
         return cell!
     }
     
@@ -99,3 +103,5 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
         }.resume()
     }
 }
+    
+

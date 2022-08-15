@@ -7,10 +7,14 @@ struct HistorialClass: Decodable{
     let Fecha:String
     let Tipo_Activacion:String
     let Id_Usuario:String
-    let Valor1:Double
-    let Valor2:Double
-    let Valor3:Double
-    let Valor4:Double
-    let Valor5:Double
-    let Valor6:Double
+    let Sensores: [Sensores]
+    
+    struct Sensores: Codable{
+        let id_sensor:String
+        let estacion:Int
+        let tipo:String
+        let nombre:String
+        let valor: Int
+        let _id:String
+    }
 }

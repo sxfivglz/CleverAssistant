@@ -5,6 +5,5 @@ struct SensoresClass: Decodable{
     let Estacion:Int
     let Tipo:String
     let Nombre:String
-    
 }
 

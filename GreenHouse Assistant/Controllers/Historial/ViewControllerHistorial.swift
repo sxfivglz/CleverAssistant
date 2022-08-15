@@ -20,27 +20,24 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
     var invernaderos = [InvernaderosClass]()
     var estaciones = [EstacionesClass]()
     var tipoestArray = ["Todos", "Automatica","Manual"]
-    var usuarioArray = ["u1","u2","u3"]
+    var usuarios = [UsuarioClass]()
     var historial = [HistorialClass]()
     var idInv:Int = 0
     var Inv:String = ""
     var idEst:Int = 0
     var Est:String = ""
     var TipoAct:String = ""
+    var idUser:Int = 0
     var FechaInicio:String = ""
     var FechaFin:String = ""
     //Datos
+    var _id:String?
+    var indHist:Int?
     var inver:String?
     var esta:String?
     var usua:String?
     var fecha:String?
     var tpa:String?
-    var va1:Double?
-    var va2:Double?
-    var va3:Double?
-    var va4:Double?
-    var va5:Double?
-    var va6:Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +99,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         if historial.count == 0 {
             let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
             emptyLabel.text = "No se encontraron resultados."
+            emptyLabel.textColor = .darkGray
             emptyLabel.font = UIFont.systemFont(ofSize: 35)
             emptyLabel.numberOfLines =  0
             emptyLabel.textAlignment = NSTextAlignment.center
@@ -117,52 +115,55 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableIdentifierH", for: indexPath) as? TableViewCellH
         let hist = historial[indexPath.row]
-        cell?.estacionLabel.text = hist.Estacion
-        cell?.invernaderoLabel.text = hist.Invernadero
-        cell?.fechaLabel.text = hist.Fecha
-        cell?.usuarioLabel.text = hist.Id_Usuario
-        cell?.tipoactLabel.text = hist.Tipo_Activacion
+        cell?.estacionLabel.text = "Estación: \(hist.Estacion)"
+        cell?.invernaderoLabel.text = "Invernadero: \(hist.Invernadero)"
+       // cell?.fechaLabel.text = hist.Fecha
+        let f:String = hist.Fecha
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = dateFormatter.date(from: f)
+        dateFormatter.dateFormat = "dd-MM-yyyy, HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        let resultString = dateFormatter.string(from: date!)
+        cell?.fechaLabel.text =  "Fecha y hora de activación: \(resultString)"
+        cell?.usuarioLabel.text =  "Usuario: \(hist.Id_Usuario)"
+        cell?.tipoactLabel.text = "Tipo de activación: \(hist.Tipo_Activacion)"
+        let bgv = UIView()
+        bgv.backgroundColor = UIColor.systemBlue
+        cell?.selectedBackgroundView = bgv
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0{
-            return 280
+            return 300
         }
-        return 280
+        return 300
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let hist = historial[indexPath.row]
+        _id = hist._id
         inver = hist.Invernadero
         esta = hist.Estacion
         usua = hist.Id_Usuario
         fecha = hist.Fecha
         tpa = hist.Tipo_Activacion
-        va1 = hist.Valor1
-        va2 = hist.Valor2
-        va3 = hist.Valor3
-        va4 = hist.Valor4
-        va5 = hist.Valor5
-        va6 = hist.Valor6
-        
+        indHist = Int(indexPath.row)
+
         self.performSegue(withIdentifier: "HistSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "HistSegue" {
             let destinationVC = segue.destination as! ViewControllerHistorialFinal
+            destinationVC._idHist = _id!
             destinationVC.inv = inver!
             destinationVC.est = esta!
             destinationVC.usu = usua!
             destinationVC.fecha = fecha!
             destinationVC.ta = tpa!
-            destinationVC.v1 = va1!
-            destinationVC.v2 = va2!
-            destinationVC.v3 = va3!
-            destinationVC.v4 = va4!
-            destinationVC.v5 = va5!
-            destinationVC.v6 = va6!
+            destinationVC.detalle.append(HistorialClass(_id: historial[indHist!]._id, Invernadero: historial[indHist!].Invernadero, Estacion: historial[indHist!].Estacion, Fecha: historial[indHist!].Fecha, Tipo_Activacion: historial[indHist!].Tipo_Activacion, Id_Usuario: historial[indHist!].Id_Usuario, Sensores: historial[indHist!].Sensores))
         }
     }
     
@@ -176,21 +177,31 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         request.addValue(tk, forHTTPHeaderField: "Authorization")
         
         let body: [String: AnyHashable] = [
-            "invernadero": Inv,
-            "estacion": Est,
+            "invernadero": String(idInv),
+            "estacion": String(idEst),
             "tipo_activacion": TipoAct,
-            "id_usuario": "Todos",
+            "id_usuario": String(idUser),
             "fecha_inicio": FechaInicio,
             "fecha_fin": FechaFin
         ]
+        print(body)
         
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        print(1)
     
         URLSession.shared.dataTask(with: request){ data, response, err in
             if err == nil {
+                print(2)
                 do {
-            
+                    print(3)
                     self.historial = try JSONDecoder().decode([HistorialClass].self, from: data!)
+                    print(self.historial)
+                    print("-----------------------------------------------")
+                    print("-----------------------------------------------")
+                    print("-----------------------------------------------")
+                    print("-----------------------------------------------")
+                    
+                    print(4)
                     
                     DispatchQueue.main.async {
                         completed()
@@ -273,6 +284,32 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         }.resume()
     }
     
+    //rellenaUsuarios
+    func rellenaUsuarios(completed: @escaping () -> ()){
+        let tk:String = UserDefaults.standard.string(forKey: "Token")!
+        let url = URL(string: myConection + "users_invernaderos/getUsuarios_Invernadero/" + String(idInv))
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(tk, forHTTPHeaderField: "Authorization")
+                
+        URLSession.shared.dataTask(with: request){ data, response, err in
+            if err == nil {
+                do {
+                    self.usuarios = try JSONDecoder().decode([UsuarioClass].self, from: data!)
+                    self.usuarios.append(UsuarioClass(id: 0, email: "Todos", nombre: "Todos", apellido_paterno: "Todos", apellido_materno: "Todos", tipo_usuario: "Todos", estatus: "Todos", telefono: "Todos", pin_acceso: 0, fecha_nacimiento: "Todos", fecha_activo: "Todos", created_at: "Todos", updated_at: "Todos"))
+                    self.usuarios = self.usuarios.sorted(by: { $0.id < $1.id })
+                    DispatchQueue.main.async {
+                        completed()
+                    }
+                }
+                catch {
+                    print("Error api")
+                }
+            }
+        }.resume()
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
@@ -286,7 +323,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         case 3:
             return tipoestArray.count
         case 4:
-            return usuarioArray.count
+            return usuarios.count
         default:
             return 1
             
@@ -302,7 +339,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         case 3:
             return tipoestArray[row]
         case 4:
-            return usuarioArray[row]
+            return usuarios[row].nombre
         default:
             return "No se encontraron datos"
         }
@@ -317,6 +354,9 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
             rellenaEstaciones {
                 print("success")
             }
+            rellenaUsuarios {
+                print("Success")
+            }
         case 2:
             idEst = self.estaciones[row].id
             Est = self.estaciones[row].nombre
@@ -327,7 +367,8 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
             TipoAct = tipoestArray[row]
             tipoestacionTextField.resignFirstResponder()
         case 4:
-            usuarioTextField.text = usuarioArray[row]
+            usuarioTextField.text = usuarios[row].nombre
+            idUser = usuarios[row].id
             usuarioTextField.resignFirstResponder()
         default:
             return

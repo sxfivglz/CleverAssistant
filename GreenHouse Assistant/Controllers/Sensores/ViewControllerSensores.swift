@@ -12,19 +12,17 @@ class ViewControllerSensores: UIViewController, UIPickerViewDataSource, UIPicker
     var datos = [DatoSensorClass]()
     var sensores = [SensoresClass]()
     var id_sensor = ""
-    
     /*Humedad,Caudal,Temperatura*/
     override func viewDidLoad() {
         super.viewDidLoad()
+        rellenaSensores {
+            print("success")
+        }
         labelNombreSensor.isHidden = true
         labelTipoSensor.isHidden = true
         labelDato.isHidden = true
         NombreSensor.isHidden = true
         Fecha.isHidden = true
-        rellenaSensores {
-            print("success")
-        }
-        
         pickerSensores.dataSource = self
         pickerSensores.delegate = self
         sensoresTextField.inputView = pickerSensores
@@ -39,11 +37,6 @@ class ViewControllerSensores: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        self.labelNombreSensor.isHidden = false
-        self.labelTipoSensor.isHidden = false
-        self.labelDato.isHidden = false
-        self.NombreSensor.isHidden = false
-        self.Fecha.isHidden = false
         return self.sensores[row].Nombre
     }
     
@@ -59,7 +52,16 @@ class ViewControllerSensores: UIViewController, UIPickerViewDataSource, UIPicker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         sensoresTextField.text = sensores[row].Nombre
         id_sensor = sensores[row]._id
-        
+        labelNombreSensor.isHidden = false
+        labelTipoSensor.isHidden = false
+        labelDato.isHidden = false
+        NombreSensor.isHidden = false
+        Fecha.isHidden = false
+        labelNombreSensor.text = ""
+        labelTipoSensor.text = ""
+        labelDato.text = ""
+        NombreSensor.text = ""
+        Fecha.text = ""
         sensoresTextField.resignFirstResponder()
         recuperaSensor {
             print("sensores success")
@@ -86,6 +88,8 @@ class ViewControllerSensores: UIViewController, UIPickerViewDataSource, UIPicker
                 if self.datos.count != 0{
                     OperationQueue.main.addOperation {
                         print(response)
+                        self.NombreSensor.text = "Nombre del sensor:"
+                        self.Fecha.text = "Fecha y hora de actividad:"
                         self.labelNombreSensor.text = String(self.datos[0].Nombre)
                         self.labelDato.text = String(self.datos[0].Valor)
                         let f:String = self.datos[0].Fecha
@@ -97,8 +101,24 @@ class ViewControllerSensores: UIViewController, UIPickerViewDataSource, UIPicker
                         let resultString = dateFormatter.string(from: date!)
                         print(resultString)
                         self.labelTipoSensor.text = resultString
+                        if (String(self.datos[0].Tipo) == "Temperatura"){
+                            
+                            self.labelDato.text = String(self.datos[0].Valor)+"°C"
+                        }else if (String(self.datos[0].Tipo) == "Caudal"){
+                            
+                            self.labelDato.text = String(self.datos[0].Valor)+"L/Mn"
+                        }else if (String(self.datos[0].Tipo) == "Gas"){
+                            self.labelDato.text = String(self.datos[0].Valor)+"ppm"
+                        }
+                        else if(String(self.datos[0].Tipo) == "Humedad"){
+                            
+                            self.labelDato.text = String(self.datos[0].Valor)+" kPa"
+                        }else if(String(self.datos[0].Tipo) == "Fotoresistencia"){
+                            
+                            self.labelDato.text = String(self.datos[0].Valor)+"kΩ"
+                        }
                     }
-                } else {
+                    }else {
                     OperationQueue.main.addOperation{
                             let dialogMessage = UIAlertController(title: "Dato Sensor", message: "No existen datos registrados del sensor seleccionado para la estación indicada.", preferredStyle: .alert)
                             let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})

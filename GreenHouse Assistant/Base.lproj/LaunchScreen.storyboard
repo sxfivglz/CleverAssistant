@@ -10,22 +10,22 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="tyn-vS-tOe">
-                                <rect key="frame" x="143" y="359" width="738" height="648"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="id5-kb-TXh">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tyn-vS-tOe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="359" id="PhK-qq-mEq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tyn-vS-tOe" secondAttribute="bottom" constant="359" id="ooy-xA-M70"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tyn-vS-tOe" secondAttribute="trailing" constant="143" id="uah-ID-H5j"/>
-                            <constraint firstItem="tyn-vS-tOe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="xEk-xH-TAG"/>
+                            <constraint firstItem="id5-kb-TXh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LNr-dQ-x8H"/>
+                            <constraint firstItem="id5-kb-TXh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eDh-0r-xAa"/>
+                            <constraint firstItem="id5-kb-TXh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jd1-00-STv"/>
+                            <constraint firstItem="id5-kb-TXh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="v8i-5k-M3X"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LogoLaunch" width="868.5" height="1051.5"/>
+        <image name="Splash" width="1001" height="1337"/>
     </resources>
 </document>
