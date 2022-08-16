@@ -24,6 +24,7 @@
 		6881DB3828A8DA50008846B7 /* TableViewCellHFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881DB3628A8DA50008846B7 /* TableViewCellHFinal.swift */; };
 		6881DB3928A8DA51008846B7 /* TableViewCellHFinal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6881DB3728A8DA50008846B7 /* TableViewCellHFinal.xib */; };
 		6881DB3B28A9B004008846B7 /* UsuarioClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881DB3A28A9B004008846B7 /* UsuarioClass.swift */; };
+		6881DB6A28AB2DC6008846B7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6881DB6928AB2DC6008846B7 /* TabBar.swift */; };
 		688B16272873C4F400EC45AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 688B16262873C4F300EC45AD /* GoogleService-Info.plist */; };
 		689577EF287603F5003B54D3 /* ViewControllerRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689577EE287603F5003B54D3 /* ViewControllerRegistro.swift */; };
 		689577F328760588003B54D3 /* ViewControllerRecoverPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689577F228760588003B54D3 /* ViewControllerRecoverPass.swift */; };
@@ -61,6 +62,7 @@
 		6881DB3628A8DA50008846B7 /* TableViewCellHFinal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellHFinal.swift; sourceTree = "<group>"; };
 		6881DB3728A8DA50008846B7 /* TableViewCellHFinal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellHFinal.xib; sourceTree = "<group>"; };
 		6881DB3A28A9B004008846B7 /* UsuarioClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioClass.swift; sourceTree = "<group>"; };
+		6881DB6928AB2DC6008846B7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		688B16262873C4F300EC45AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		689577EE287603F5003B54D3 /* ViewControllerRegistro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRegistro.swift; sourceTree = "<group>"; };
 		689577F228760588003B54D3 /* ViewControllerRecoverPass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRecoverPass.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				68D1F53F288B67BE000BBE8A /* ViewControllerBomba.swift */,
+				6881DB6928AB2DC6008846B7 /* TabBar.swift */,
 			);
 			path = Bomba;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6881DB6A28AB2DC6008846B7 /* TabBar.swift in Sources */,
 				68529CB728871DBF000AF2A6 /* ViewControllerSensores.swift in Sources */,
 				68BE057A286EAB890096D10E /* ViewController.swift in Sources */,
 				683A425728A18A7700135955 /* SensoresClass.swift in Sources */,

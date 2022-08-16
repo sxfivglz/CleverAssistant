@@ -6,8 +6,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let fontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0)]
-         UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
+        let fontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)]
+        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
         
         return true
     }
