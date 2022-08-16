@@ -30,7 +30,7 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
               emptyLabel.text = "No se ha asignado ninguna estación a este invernadero. \n Por favor pide a tu administrador asignarte una."
             emptyLabel.font = UIFont.systemFont(ofSize: 35)
             emptyLabel.numberOfLines =  0
-            emptyLabel.textColor = .white
+            emptyLabel.textColor = .darkGray
             emptyLabel.textAlignment = NSTextAlignment.center
               self.tableView.backgroundView = emptyLabel
               self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none

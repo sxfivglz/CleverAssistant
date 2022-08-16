@@ -79,7 +79,7 @@ class ViewControllerRecoverPassFinal: UIViewController {
                                     dialogMessage.addAction(ok)
                                     self.present(dialogMessage, animated: true, completion: nil)
                                 default:
-                                    let dialogMessage = UIAlertController(title: "Error", message: "No se que chuchas paso.", preferredStyle: .alert)
+                                    let dialogMessage = UIAlertController(title: "Error", message: "Revisa tu conexión a internet e intenta de nuevo.", preferredStyle: .alert)
                                     let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action)-> Void in print("Ok button tapped")})
                                     dialogMessage.addAction(ok)
                                     self.present(dialogMessage, animated: true, completion: nil)

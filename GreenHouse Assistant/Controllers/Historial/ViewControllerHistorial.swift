@@ -71,12 +71,13 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
                 self.downloadJSONPusher {
                     print("success")
             }
-                    self.labelActualizacion.isHidden = true
-                    Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.showLabel), userInfo: nil, repeats: false)
+                
                         
                 }
         })
         pusher.connect()
+        
+        
         labelActualizacion.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -223,7 +224,6 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         let dateP = Date()
         let dateFormatterP = DateFormatter()
         dateFormatterP.dateFormat = "yyyy-MM-dd"
-        
         let body: [String: AnyHashable] = [
             "invernadero": "0",
             "estacion": String(pushIdEstacion),
@@ -242,7 +242,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
                     
                     DispatchQueue.main.async {
                         completed()
-                    
+                        self.showToast(controller: self, message : "¡Tabla actualizada!", seconds: 3.0)
                     self.tableView.reloadData()
                     }
                 }
@@ -493,3 +493,18 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         return toolBar
     }
 }
+
+extension UIViewController {
+
+    func showToast(controller: UIViewController, message : String, seconds: Double) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.view.backgroundColor = UIColor.black
+        alert.view.alpha = 0.6
+        alert.view.layer.cornerRadius = 15
+
+        controller.present(alert, animated: true)
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            alert.dismiss(animated: true)
+        }
+    } }

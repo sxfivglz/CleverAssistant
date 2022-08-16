@@ -38,7 +38,7 @@ class ViewControllerInvernaderos: UIViewController, UITableViewDelegate, UITable
               let emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
               emptyLabel.text = "No se te ha asignado ningún invernadero. \n Por favor pide a tu administrador asignarte uno."
             emptyLabel.font = UIFont.systemFont(ofSize: 35)
-            emptyLabel.textColor = .white
+            emptyLabel.textColor = .darkGray
             emptyLabel.numberOfLines =  0
             emptyLabel.textAlignment = NSTextAlignment.center
               self.tableView.backgroundView = emptyLabel
