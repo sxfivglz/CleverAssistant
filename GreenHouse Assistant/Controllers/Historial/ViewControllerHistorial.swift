@@ -1,6 +1,7 @@
 import UIKit
 import PusherSwift
-
+/*rgba(4, 185, 249, 1) azul claro*/
+/*rgb(4,100,196)*/
 class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, PusherDelegate {
     var pusher: Pusher!
     //TextFields
@@ -12,7 +13,6 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var fechainicioTextField: UITextField!
     @IBOutlet weak var fechafinTextField: UITextField!
     @IBOutlet weak var buscarBtn: UIButton!
-    @IBOutlet weak var labelActualizacion: UILabel!
     //Pickers
     var invernaderoPickerView = UIPickerView()
     var estacionPickerView = UIPickerView()
@@ -77,8 +77,6 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         })
         pusher.connect()
         
-        
-        labelActualizacion.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
@@ -128,10 +126,6 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
     func debugLog(message: String) {
         print(message)
     }
-    
-    @objc func showLabel() {
-        self.labelActualizacion.isHidden = false
-        }
     
     @IBAction func buscarHistorial(_ sender: Any) {
         downloadJSON {
@@ -243,7 +237,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
                     DispatchQueue.main.async {
                         completed()
                         self.showToast(controller: self, message : "¡Tabla actualizada!", seconds: 3.0)
-                    self.tableView.reloadData()
+                        self.tableView.reloadData()
                     }
                 }
                 catch {

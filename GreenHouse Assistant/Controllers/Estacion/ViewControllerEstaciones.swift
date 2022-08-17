@@ -68,9 +68,9 @@ class ViewControllerEstaciones: UIViewController, UITableViewDelegate, UITableVi
         defaults.setValue(estacion.id, forKey: "Id_Estacion")
         defaults.setValue(estacion.nombre, forKey: "nombreEstacion")
         
-        OperationQueue.main.addOperation {
-             [weak self] in
-            self?.performSegue(withIdentifier: "principalSegue", sender: self)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "segueInicio", sender: self)
+
         }
     }
      
