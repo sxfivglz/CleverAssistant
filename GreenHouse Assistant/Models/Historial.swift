@@ -14,7 +14,7 @@ struct HistorialClass: Decodable{
         let estacion:Int
         let tipo:String
         let nombre:String
-        let valor: Int
+        let valor:Double
         let _id:String
     }
 }

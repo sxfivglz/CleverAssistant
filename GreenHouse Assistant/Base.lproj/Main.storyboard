@@ -494,7 +494,7 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="separatorColor" red="0.66672766210000001" green="0.96092218159999998" blue="0.26904869079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenhouse" id="dEu-HN-IWL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Invernadero-2" id="dEu-HN-IWL">
                                 <rect key="frame" x="0.0" y="1161" width="1024" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -532,7 +532,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" id="4EX-5i-eJe">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Estacion" id="4EX-5i-eJe">
                                 <rect key="frame" x="0.0" y="1157" width="1024" height="209"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -820,12 +820,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.fill.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fve-kB-FNb">
-                                <rect key="frame" x="292" y="182.5" width="440" height="108.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="PerfilCuadro" translatesAutoresizingMaskIntoConstraints="NO" id="Fve-kB-FNb">
+                                <rect key="frame" x="292" y="172" width="440" height="120"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="440" id="EJJ-9Y-brX"/>
-                                    <constraint firstAttribute="height" constant="110" id="Yas-wv-l0A"/>
+                                    <constraint firstAttribute="height" constant="120" id="Yas-wv-l0A"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="753" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZkA-S3-J85">
@@ -964,13 +964,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Perfil" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8h0-xO-8kd">
-                                <rect key="frame" x="0.0" y="90" width="1024" height="72"/>
+                                <rect key="frame" x="0.0" y="80" width="1024" height="72"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="MiE-vD-fQE">
-                                <rect key="frame" x="20" y="783" width="979" height="65"/>
+                                <rect key="frame" x="20" y="783" width="154" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="irn-1k-Gc3"/>
                                 </constraints>
@@ -979,7 +979,7 @@
                         <viewLayoutGuide key="safeArea" id="rY8-zm-gxO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8h0-xO-8kd" firstAttribute="top" secondItem="rY8-zm-gxO" secondAttribute="top" constant="40" id="0kw-Be-3OX"/>
+                            <constraint firstItem="8h0-xO-8kd" firstAttribute="top" secondItem="rY8-zm-gxO" secondAttribute="top" constant="30" id="0kw-Be-3OX"/>
                             <constraint firstItem="L5b-zj-2Lt" firstAttribute="top" secondItem="gNS-2f-pNU" secondAttribute="bottom" constant="15" id="2We-JE-oco"/>
                             <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="ZkA-S3-J85" secondAttribute="trailing" constant="25" id="3RN-Oh-tV0"/>
                             <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="h2p-wX-rbG" secondAttribute="trailing" constant="25" id="4fv-M6-Idh"/>
@@ -987,7 +987,7 @@
                             <constraint firstItem="HVG-Yy-LUm" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" constant="20" id="5sI-Ny-SNg"/>
                             <constraint firstItem="8h0-xO-8kd" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" id="6ty-d6-dyQ"/>
                             <constraint firstItem="FfT-IE-8Sp" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" constant="20" id="7J0-dt-ycn"/>
-                            <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="MiE-vD-fQE" secondAttribute="trailing" constant="25" id="8Ia-6R-Glo"/>
+                            <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="MiE-vD-fQE" secondAttribute="trailing" constant="850" id="8Ia-6R-Glo"/>
                             <constraint firstItem="ui0-79-6Ms" firstAttribute="top" secondItem="m9M-Qm-DEt" secondAttribute="bottom" constant="15" id="8f1-oq-lTC"/>
                             <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="08R-B8-SIZ" secondAttribute="trailing" constant="25" id="9Y0-nO-sQN"/>
                             <constraint firstItem="HVG-Yy-LUm" firstAttribute="top" secondItem="aQW-Uj-nF3" secondAttribute="bottom" constant="15" id="ASp-Pb-h9s"/>
@@ -1278,7 +1278,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vQ8-lk-PBp">
                         <barButtonItem key="backBarButtonItem" title="Menú de inicio" id="daB-IY-8SI"/>
-                        <barButtonItem key="rightBarButtonItem" title="Perfil" image="person.fill" catalog="system" id="i0r-9B-W8w">
+                        <barButtonItem key="rightBarButtonItem" title="Perfil" image="al0p7-i9ixq-1" landscapeImage="al0p7-i9ixq-1" largeContentSizeImage="al0p7-i9ixq-1" id="i0r-9B-W8w">
                             <connections>
                                 <segue destination="aV7-cw-fe5" kind="show" id="g2H-hv-0Lv"/>
                             </connections>
@@ -1491,15 +1491,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Estacion" width="440" height="468"/>
         <image name="Imagotipo" width="1432" height="1506"/>
+        <image name="Invernadero-2" width="512" height="512"/>
+        <image name="PerfilCuadro" width="470" height="470"/>
+        <image name="al0p7-i9ixq-1" width="32" height="32"/>
         <image name="bomba-2" width="64" height="64"/>
         <image name="bomba-de-agua-3" width="512" height="512"/>
         <image name="buscar-2" width="512" height="512"/>
-        <image name="greenhouse" width="512" height="512"/>
         <image name="historial" width="512" height="512"/>
-        <image name="location" width="512" height="512"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="person.fill.viewfinder" catalog="system" width="128" height="115"/>
         <image name="sensor-2" width="512" height="512"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

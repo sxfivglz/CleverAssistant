@@ -44,6 +44,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         rellenaInvernadero{
             print("success")
         }
@@ -272,6 +273,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         URLSession.shared.dataTask(with: request){ data, response, err in
             if err == nil {
                 do {
+                    print(1)
                     self.historial = try JSONDecoder().decode([HistorialClass].self, from: data!)
                     
                     DispatchQueue.main.async {

@@ -7,10 +7,12 @@ class ViewControllerBomba: UIViewController {
         super.viewDidLoad()
         btnOn.layer.cornerRadius = btnOn.bounds.size.height/2
         btnOff.layer.cornerRadius = btnOff.bounds.size.height/2
+
     
     }
     
     @IBAction func Encender(_ sender: Any) {
+        btnOff.isUserInteractionEnabled = false
         let x:String = myConection + "bomba/create"
         guard let url = URL(string: x) else { return }
         let Id_estacion:String = UserDefaults.standard.string(forKey: "Id_Estacion")!
@@ -39,7 +41,11 @@ class ViewControllerBomba: UIViewController {
                 {
                     
                     DispatchQueue.main.async {
-                        self.showToastEncendido(controller: self, message: "La bomba de la estación \(Id_estacion) se ha encendido.", seconds: 3.0)
+                        self.showToastEncendido(controller: self, message: "La bomba de la estación \(Id_estacion) se ha encendido.", seconds: 2.0)
+                        self.btnOff.isUserInteractionEnabled = true
+                        self.btnOn.isUserInteractionEnabled = false
+                        self.btnOff.isEnabled = true
+                        self.btnOn.isEnabled = false
                         }
                 }
                 else{
@@ -76,6 +82,7 @@ class ViewControllerBomba: UIViewController {
     }
     
     @IBAction func Apagar(_ sender: Any) {
+        btnOn.isUserInteractionEnabled = false
         let Id_user:String = UserDefaults.standard.string(forKey: "idUsuario")!
         let Id_estacion:String = UserDefaults.standard.string(forKey: "Id_Estacion")!
         let x:String = (myConection + "bomba/apagar")
@@ -106,7 +113,11 @@ class ViewControllerBomba: UIViewController {
                     if msg == "ok"
                     {
                         OperationQueue.main.addOperation {
-                            self.showToastApagado(controller: self, message: "La bomba de la estación \(Id_estacion) se ha apagado.", seconds: 3.0)
+                            self.showToastApagado(controller: self, message: "La bomba de la estación \(Id_estacion) se ha apagado.", seconds: 2.0)
+                            self.btnOn.isUserInteractionEnabled = true
+                            self.btnOff.isUserInteractionEnabled = false
+                            self.btnOn.isEnabled = true
+                            self.btnOff.isEnabled = false
                             }
                     } else {
                         print("error -----")
