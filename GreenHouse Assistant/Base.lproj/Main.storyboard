@@ -1315,6 +1315,9 @@
                                 <state key="normal" title="Apagar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="Apagar:" destination="p1C-cb-cOw" eventType="touchUpInside" id="k7q-hq-69z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Panel de control para el encendido y apagado de la bomba." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfw-rq-99T">
                                 <rect key="frame" x="20" y="120" width="984" height="143.5"/>
@@ -1332,6 +1335,9 @@
                                 <state key="normal" title="Encender">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="Encender:" destination="p1C-cb-cOw" eventType="touchUpInside" id="Phi-9V-pe6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UsR-hu-7Oc"/>

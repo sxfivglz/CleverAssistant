@@ -1,7 +1,6 @@
 import UIKit
 import PusherSwift
-/*rgba(4, 185, 249, 1) azul claro*/
-/*rgb(4,100,196)*/
+
 class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate, PusherDelegate {
     var pusher: Pusher!
     //TextFields
@@ -107,6 +106,8 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         estacionPickerView.tag = 2
         tipoestacionPickerView.tag = 3
         usuarioPickerView.tag = 4
+        fechainicioPickerView.tag = 5
+        fechafinPickerView.tag = 6
         //Estilo del pickerdate
         fechainicioPickerView.preferredDatePickerStyle = .wheels
         fechafinPickerView.preferredDatePickerStyle = .wheels
@@ -119,6 +120,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         calendar.locale = loc
         fechainicioPickerView.locale = loc
         fechafinPickerView.locale = loc
+    
     }
     
     
@@ -382,7 +384,10 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
-    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat
+    {
+        return 50
+    }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView.tag {
         case 1:
@@ -399,7 +404,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+   /* func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView.tag {
         case 1:
             return self.invernaderos[row].nombre
@@ -411,6 +416,55 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
             return usuarios[row].nombre
         default:
             return "No se encontraron datos"
+        }
+    }*/
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        switch pickerView.tag {
+        case 1:
+            var pickerLabel: UILabel? = (view as? UILabel)
+            if pickerLabel == nil {
+                pickerLabel = UILabel()
+                pickerLabel?.font = UIFont.systemFont(ofSize: 20)
+                pickerLabel?.textAlignment = .center
+            }
+            pickerLabel?.text = self.invernaderos[row].nombre
+            return pickerLabel!
+        case 2:
+            var pickerLabel: UILabel? = (view as? UILabel)
+            if pickerLabel == nil {
+                pickerLabel = UILabel()
+                pickerLabel?.font = UIFont.systemFont(ofSize: 20)
+                pickerLabel?.textAlignment = .center
+            }
+            pickerLabel?.text = self.estaciones[row].nombre
+            return pickerLabel!
+            
+        case 3:
+            var pickerLabel: UILabel? = (view as? UILabel)
+            if pickerLabel == nil {
+                pickerLabel = UILabel()
+                pickerLabel?.font = UIFont.systemFont(ofSize: 20)
+                pickerLabel?.textAlignment = .center
+            }
+            pickerLabel?.text = self.tipoestArray[row]
+            return pickerLabel!
+        case 4:
+            var pickerLabel: UILabel? = (view as? UILabel)
+            if pickerLabel == nil {
+                pickerLabel = UILabel()
+                pickerLabel?.font = UIFont.systemFont(ofSize: 20)
+                pickerLabel?.textAlignment = .center
+            }
+            pickerLabel?.text = self.usuarios[row].nombre
+          return pickerLabel!
+        default:
+            var pickerLabel: UILabel? = (view as? UILabel)
+            if pickerLabel == nil {
+                pickerLabel = UILabel()
+                pickerLabel?.font = UIFont.systemFont(ofSize: 20)
+                pickerLabel?.textAlignment = .center
+            }
+            return pickerLabel!
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -444,6 +498,8 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    
+    
     //Boton done para las fechas
     @objc func donePressed(){
         let dateFormatter = DateFormatter()
@@ -456,6 +512,7 @@ class ViewControllerHistorial: UIViewController, UITableViewDelegate, UITableVie
         dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         FechaInicio = dateFormatter.string(from: date!)
         self.view.endEditing(true)
+        
     }
     
     func createToolbar() -> UIToolbar{
@@ -492,7 +549,7 @@ extension UIViewController {
 
     func showToast(controller: UIViewController, message : String, seconds: Double) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.view.backgroundColor = UIColor.black
+        alert.view.backgroundColor = UIColor.systemBlue
         alert.view.alpha = 0.6
         alert.view.layer.cornerRadius = 15
 
