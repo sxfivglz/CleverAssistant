@@ -970,7 +970,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="MiE-vD-fQE">
-                                <rect key="frame" x="20" y="783" width="154" height="65"/>
+                                <rect key="frame" x="5" y="783" width="119" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="irn-1k-Gc3"/>
                                 </constraints>
@@ -987,7 +987,7 @@
                             <constraint firstItem="HVG-Yy-LUm" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" constant="20" id="5sI-Ny-SNg"/>
                             <constraint firstItem="8h0-xO-8kd" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" id="6ty-d6-dyQ"/>
                             <constraint firstItem="FfT-IE-8Sp" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" constant="20" id="7J0-dt-ycn"/>
-                            <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="MiE-vD-fQE" secondAttribute="trailing" constant="850" id="8Ia-6R-Glo"/>
+                            <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="MiE-vD-fQE" secondAttribute="trailing" constant="900" id="8Ia-6R-Glo"/>
                             <constraint firstItem="ui0-79-6Ms" firstAttribute="top" secondItem="m9M-Qm-DEt" secondAttribute="bottom" constant="15" id="8f1-oq-lTC"/>
                             <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="08R-B8-SIZ" secondAttribute="trailing" constant="25" id="9Y0-nO-sQN"/>
                             <constraint firstItem="HVG-Yy-LUm" firstAttribute="top" secondItem="aQW-Uj-nF3" secondAttribute="bottom" constant="15" id="ASp-Pb-h9s"/>
@@ -996,7 +996,7 @@
                             <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="Kb5-fc-M9o" secondAttribute="trailing" constant="25" id="CfL-PA-yIz"/>
                             <constraint firstItem="h2p-wX-rbG" firstAttribute="top" secondItem="Kb5-fc-M9o" secondAttribute="bottom" constant="15" id="Ct9-xG-A1y"/>
                             <constraint firstItem="Fve-kB-FNb" firstAttribute="top" secondItem="8h0-xO-8kd" secondAttribute="bottom" constant="20" id="DIA-DO-EyL"/>
-                            <constraint firstItem="MiE-vD-fQE" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" constant="20" id="DzT-7A-AFR"/>
+                            <constraint firstItem="MiE-vD-fQE" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" constant="5" id="DzT-7A-AFR"/>
                             <constraint firstItem="3IL-Ym-Wlk" firstAttribute="top" secondItem="HVG-Yy-LUm" secondAttribute="bottom" constant="15" id="Fsd-TM-51p"/>
                             <constraint firstItem="jkl-8p-6HW" firstAttribute="leading" secondItem="rY8-zm-gxO" secondAttribute="leading" constant="200" id="IJ3-hC-NZ8"/>
                             <constraint firstItem="rY8-zm-gxO" firstAttribute="trailing" secondItem="3IL-Ym-Wlk" secondAttribute="trailing" constant="25" id="KCi-8S-1DK"/>
