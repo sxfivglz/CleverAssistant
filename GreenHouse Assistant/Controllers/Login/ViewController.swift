@@ -5,7 +5,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registroBtn: UIButton!
-    
     @IBOutlet weak var recoverBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +39,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         else{
             let x:String = myConection + "login"
             guard let url = URL(string: x) else { return }
-            
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -66,7 +64,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         self.recuperaDatosUsuario {
                             print("Usuario")
                         }
-                        
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: "InvSegue", sender: self)
                         }

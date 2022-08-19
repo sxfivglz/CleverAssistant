@@ -125,6 +125,8 @@ class ViewControllerSensores: UIViewController, UIPickerViewDataSource, UIPicker
                         }else if(String(self.datos[0].Tipo) == "Fotoresistencia"){
                             
                             self.labelDato.text = String(self.datos[0].Valor)+"kΩ"
+                        }else if(String(self.datos[0].Tipo) == "Bomba"){
+                            self.labelDato.text = String(self.datos[0].Valor)+"m3/h"
                         }
                     }
                     }else {
@@ -158,6 +160,7 @@ class ViewControllerSensores: UIViewController, UIPickerViewDataSource, UIPicker
                     self.sensores = try JSONDecoder().decode([SensoresClass].self, from: data!)
                     DispatchQueue.main.async {
                         completed()
+                 
                     }
                 }
                 catch {
